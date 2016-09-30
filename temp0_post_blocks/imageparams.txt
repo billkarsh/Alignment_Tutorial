@@ -1,0 +1,2 @@
+IDBPATH /groups/apig/tomo/DEMO/idb0
+IMAGESIZE 1376 1040

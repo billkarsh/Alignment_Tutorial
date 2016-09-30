@@ -1,0 +1,35 @@
+#!/bin/sh
+
+# Purpose:
+# Count all 'Sx_y' dirs in layer range
+#
+# > ./countsamedirs.sht i j
+
+
+export MRC_TRIM=12
+
+if (($# == 1))
+then
+	last=$1
+else
+	last=$2
+fi
+
+cnt=0
+
+for lyr in $(seq $1 $last)
+do
+	if [ -d "$lyr" ]
+	then
+		cd $lyr
+
+		for jb in $(ls -d * | grep -E 'S[0-9]{1,}_[0-9]{1,}')
+		do
+			cnt=$(($cnt+1))
+		done
+
+		echo z= $lyr  cum= $cnt
+		cd ..
+	fi
+done
+

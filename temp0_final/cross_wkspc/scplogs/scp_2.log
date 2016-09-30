@@ -1,0 +1,128 @@
+Scapeops start: Fri Sep 30 13:18:13 2016 /groups/apig/tomo/DEMO/temp0/X_A_BIN_mons -script=/groups/apig/tomo/DEMO/prms/scriptparams.txt -idb=/groups/apig/tomo/DEMO/idb0 -mb -zb=2 
+
+---- Script parameters ----
+slotspernode=16        <typical 16>      "fixed slot count per cluster node"
+usingfoldmasks=N       <typical N>       "Y=Each tile gets foldmask image"
+croprectfile=          <path or blank>   "{cam,x0,y0,dx,dy} for ea. cam"
+makefmjparam=4         <typical 4>       "'fsub'/make.fm -j #concurrent_procs"
+makefmslots=4          <typical 4>       "'fsub'/make.fm slots per qsub (>= jparam)"
+createauxdirs=N        <typical N>       "Y=create special dirs for aux ptest info"
+montageblocksize=8     <typical 8>       "montage work grid cell size^2 tiles"
+mintileolapfrac=0.02   <typical 0.02>    "min layout tile area frac for overlap"
+ignorecorners=N        <typical N>       "Y=using row/col data, omit corner-corner pairs"
+makesamejparam=4       <typical 4>       "'ssub'/make.same -j #concurrent_procs"
+makesameslots=4        <typical 4>       "'ssub'/make.same slots per qsub (>= jparam)"
+crossscale=8           <typical 50>      "scale reduction for strips and blocks"
+legendremaxorder=2     <typical 1>       "max order Legendre poly bkgnd subtraction"
+rendersdevcnts=42      <typical 42>      "rescale making 1 stdev this many cnts"
+maskoutresin=N         <typical N>       "Y=remove resin pixels from EM rendering"
+stripwidth=5           <typical 15>      "strips n tiles wide in short dimension (0 -> full)"
+stripsweepspan=360     <typical 360.0>   "strip angle sweep span (deg, 0 -> force 0)"
+stripsweepstep=5       <typical 5.0>     "strip sweep step size (deg, step > 0)"
+stripmincorr=0.02      <typical 0.02>    "try bigger strips if correlation this low"
+stripslots=8           <typical 8>       "subscapes.sht/scapeops slots/threads per job"
+crossblocksize=10      <typical 10>      "block work grid cell size^2 tiles"
+blocksweepspan=8       <typical 8.0>     "block angle sweep span (deg)"
+blocksweepstep=0.2     <typical 0.2>     "block sweep step size (deg, step > 0)"
+blockxyconf=0.75       <typical 0.75>    "search radius = (1-conf)(blockwide)"
+blockmincorr=0.2       <typical 0.45>    "min required block match correlation"
+blocknomcorr=0.2       <typical 0.50>    "nominal block match correlation"
+blocknomcoverage=0.90  <typical 0.90>    "nominal block area frac matched"
+blockreqdz=1           <typical 1>       "connect to at least reqdz layers (<= maxdz)"
+blockmaxdz=10          <typical 10>      "max z-index span of useful correlation"
+blockslots=8           <typical 8>       "bsub.sht/cross_thisblock slots/threads per job"
+makedownjparam=4       <typical 4>       "'dsub'/make.down -j #concurrent_procs"
+makedownslots=4        <typical 4>       "'dsub'/make.down slots per qsub (>= jparam)"
+xmlpixeltype=0         <typical 0>       "ImagePlus type code (above)"
+xmlsclmin=0            <typical 0>       "intensity scale min"
+xmlsclmax=0            <typical 0>       "intensity scale max"
+
+Got 14 images.
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/C1_0_2.tif].
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+TIF(8): Last Encoded strip had 1376 bytes.
+Timer: ReadFile took 0.050 seconds.
+
+---- Paint montage ----
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/C1_1_2.tif].
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/C1_2_2.tif].
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/C1_3_2.tif].
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/C1_4_2.tif].
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/C1_5_2.tif].
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/C1_0_2.tif].
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/C1_7_2.tif].
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/C1_6_2.tif].
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+TIF(8): Last Encoded strip had 1376 bytes.
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+TIF(8): Last Encoded strip had 1376 bytes.
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+TIF(8): Last Encoded strip had 1376 bytes.
+TIF(8): Last Encoded strip had 1376 bytes.
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+TIF(8): Last Encoded strip had 1376 bytes.
+TIF(8): Last Encoded strip had 1376 bytes.
+TIF(8): Last Encoded strip had 1376 bytes.
+TIF(8): Last Encoded strip had 1376 bytes.
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/C1_8_2.tif].
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+TIF(8): Last Encoded strip had 1376 bytes.
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/C1_9_2.tif].
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+TIF(8): Last Encoded strip had 1376 bytes.
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/C1_10_2.tif].
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+TIF(8): Last Encoded strip had 1376 bytes.
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/C1_11_2.tif].
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+TIF(8): Last Encoded strip had 1376 bytes.
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/C1_12_2.tif].
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+TIF(8): Last Encoded strip had 1376 bytes.
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/C1_13_2.tif].
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+TIF(8): Last Encoded strip had 1376 bytes.
+*M: z deg [l,r,b,t] scl [ws,hs] [x0,y0]
+2 0 [0,2524,0,6187] 8 [316,774] [0,0]
+Timer: MakeMontage took 0.880 seconds.
+
+
+---- Memory ----
+Host name: h09u09.int.janelia.org
+PID:       107997
+User time:       1 seconds.
+System time:     0 seconds.
+VmPeak:	  685236 kB
+VmSize:	  595768 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	  106496 kB
+VmRSS:	   28992 kB
+VmData:	  462156 kB
+VmStk:	     144 kB
+VmExe:	     744 kB
+VmLib:	   51980 kB
+VmPTE:	     272 kB
+VmSwap:	       0 kB
+voluntary_ctxt_switches:	322
+nonvoluntary_ctxt_switches:	173
+

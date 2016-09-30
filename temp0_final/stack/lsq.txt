@@ -1,0 +1,38 @@
+Your job 615065 ("lsqw") has been submitted
+---- Read params ----
+Temp  dir: '/groups/apig/tomo/DEMO/temp0'.
+zi [0 2]
+Prior solutions: '../cross_wkspc/X_A_BIN_scaf'.
+Mode: 'A2A'.
+Rglizer Wr: R, 0
+Error  tol: 500
+Iterations: 10000
+
+---- Cataloging ----
+Timer: Catalog took 0.000 seconds.
+
+---- Launching workers ----
+Workers 1, z-per-node 200.
+Launch <>
+<QSUB_1NODE.sht 8 "lsqw" "" 16 "lsqw -nwks=1 -temp=/groups/apig/tomo/DEMO/temp0 -cache=/groups/apig/tomo/DEMO/temp0/stack/lsqcache -prior=../cross_wkspc/X_A_BIN_scaf -mode=A2A -Wr=R,0 -Etol=500 -iters=10000 -splitmin=1000 -maxthreads=16 -zi=0,2 -zo=0,2 -untwist">
+
+---- Memory ----
+Host name: c11u24.int.janelia.org
+PID:       10429
+User time:       0 seconds.
+System time:     0 seconds.
+VmPeak:	  134928 kB
+VmSize:	  134420 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	    5348 kB
+VmRSS:	    5348 kB
+VmData:	    1532 kB
+VmStk:	     140 kB
+VmExe:	      24 kB
+VmLib:	   51980 kB
+VmPTE:	     216 kB
+VmSwap:	       0 kB
+voluntary_ctxt_switches:	24
+nonvoluntary_ctxt_switches:	1
+

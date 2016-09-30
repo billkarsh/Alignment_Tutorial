@@ -1,0 +1,45 @@
+#!/bin/sh
+
+# Purpose:
+# Fifth step in cross-layer alignment.
+#
+# > cross_thisblock -script=scriptpath
+#
+# Do one block alignment job, data read from 'blockdat.txt'.
+#
+# Options:
+# -evalalldz		;force evaluation of all maxdz layers
+# -abdbg			;make diagnostic images and exit (Z^Z-1)
+# -abdbg=k			;make diagnostic images and exit (Z^k)
+# -abctr=0			;debug at this a-to-b angle
+
+
+export MRC_TRIM=12
+
+if (($# == 1))
+then
+	last=$1
+else
+	last=$2
+fi
+
+cd ..
+
+for lyr in $(seq $1 $last)
+do
+	echo $lyr
+	if [ -d "$lyr" ]
+	then
+		cd $lyr
+
+		for jb in $(ls -d * | grep -E 'D[0-9]{1,}_[0-9]{1,}')
+		do
+			cd $jb
+			QSUB_1NODE.sht 7 "x$jb-$lyr" "" 8 "cross_thisblock -script=/groups/apig/tomo/DEMO/prms/scriptparams.txt"
+			cd ..
+		done
+
+		cd ..
+	fi
+done
+

@@ -1,0 +1,365 @@
+Align this block: Fri Sep 30 13:22:11 2016 -script=/groups/apig/tomo/DEMO/prms/scriptparams.txt 
+
+---- Script parameters ----
+slotspernode=16        <typical 16>      "fixed slot count per cluster node"
+usingfoldmasks=N       <typical N>       "Y=Each tile gets foldmask image"
+croprectfile=          <path or blank>   "{cam,x0,y0,dx,dy} for ea. cam"
+makefmjparam=4         <typical 4>       "'fsub'/make.fm -j #concurrent_procs"
+makefmslots=4          <typical 4>       "'fsub'/make.fm slots per qsub (>= jparam)"
+createauxdirs=N        <typical N>       "Y=create special dirs for aux ptest info"
+montageblocksize=8     <typical 8>       "montage work grid cell size^2 tiles"
+mintileolapfrac=0.02   <typical 0.02>    "min layout tile area frac for overlap"
+ignorecorners=N        <typical N>       "Y=using row/col data, omit corner-corner pairs"
+makesamejparam=4       <typical 4>       "'ssub'/make.same -j #concurrent_procs"
+makesameslots=4        <typical 4>       "'ssub'/make.same slots per qsub (>= jparam)"
+crossscale=8           <typical 50>      "scale reduction for strips and blocks"
+legendremaxorder=2     <typical 1>       "max order Legendre poly bkgnd subtraction"
+rendersdevcnts=42      <typical 42>      "rescale making 1 stdev this many cnts"
+maskoutresin=N         <typical N>       "Y=remove resin pixels from EM rendering"
+stripwidth=5           <typical 15>      "strips n tiles wide in short dimension (0 -> full)"
+stripsweepspan=360     <typical 360.0>   "strip angle sweep span (deg, 0 -> force 0)"
+stripsweepstep=5       <typical 5.0>     "strip sweep step size (deg, step > 0)"
+stripmincorr=0.02      <typical 0.02>    "try bigger strips if correlation this low"
+stripslots=8           <typical 8>       "subscapes.sht/scapeops slots/threads per job"
+crossblocksize=10      <typical 10>      "block work grid cell size^2 tiles"
+blocksweepspan=8       <typical 8.0>     "block angle sweep span (deg)"
+blocksweepstep=0.2     <typical 0.2>     "block sweep step size (deg, step > 0)"
+blockxyconf=0.75       <typical 0.75>    "search radius = (1-conf)(blockwide)"
+blockmincorr=0.2       <typical 0.45>    "min required block match correlation"
+blocknomcorr=0.2       <typical 0.50>    "nominal block match correlation"
+blocknomcoverage=0.90  <typical 0.90>    "nominal block area frac matched"
+blockreqdz=1           <typical 1>       "connect to at least reqdz layers (<= maxdz)"
+blockmaxdz=10          <typical 10>      "max z-index span of useful correlation"
+blockslots=8           <typical 8>       "bsub.sht/cross_thisblock slots/threads per job"
+makedownjparam=4       <typical 4>       "'dsub'/make.down -j #concurrent_procs"
+makedownslots=4        <typical 4>       "'dsub'/make.down slots per qsub (>= jparam)"
+xmlpixeltype=0         <typical 0>       "ImagePlus type code (above)"
+xmlsclmin=0            <typical 0>       "intensity scale min"
+xmlsclmax=0            <typical 0>       "intensity scale max"
+
+Got 28 images.
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/A1_0_2.tif].
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+TIF(8): Last Encoded strip had 1376 bytes.
+Timer: ReadFile took 0.050 seconds.
+
+--- Start A layer ----
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/B1_12_2.tif].
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/B1_11_2.tif].
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/B1_10_2.tif].
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/B1_9_2.tif].
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/B1_7_2.tif].
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/B1_8_2.tif].
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/B1_13_2.tif].
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/B1_6_2.tif].
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+TIF(8): Last Encoded strip had 1376 bytes.
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+TIF(8): Last Encoded strip had 1376 bytes.
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+TIF(8): Last Encoded strip had 1376 bytes.
+TIF(8): Last Encoded strip had 1376 bytes.
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+TIF(8): Last Encoded strip had 1376 bytes.
+TIF(8): Last Encoded strip had 1376 bytes.
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+TIF(8): Last Encoded strip had 1376 bytes.
+TIF(8): Last Encoded strip had 1376 bytes.
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/B1_5_2.tif].
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+TIF(8): Last Encoded strip had 1376 bytes.
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/B1_4_2.tif].
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+TIF(8): Last Encoded strip had 1376 bytes.
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/B1_3_2.tif].
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+TIF(8): Last Encoded strip had 1376 bytes.
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/B1_2_2.tif].
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+TIF(8): Last Encoded strip had 1376 bytes.
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/B1_1_2.tif].
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+TIF(8): Last Encoded strip had 1376 bytes.
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/B1_0_2.tif].
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+TIF(8): Last Encoded strip had 1376 bytes.
+*A: z scl [ws,hs] [x0,y0]
+1 8 [334,781] [-31.867360,24.324363]
+Timer: MakeRasA took 0.990 seconds.
+
+--- Start B layer ----
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/A1_0_2.tif].
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/A1_13_2.tif].
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/A1_1_2.tif].
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/A1_9_2.tif].
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/A1_12_2.tif].
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/A1_10_2.tif].
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/A1_11_2.tif].
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/A1_8_2.tif].
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+TIF(8): Last Encoded strip had 1376 bytes.
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+TIF(8): Last Encoded strip had 1376 bytes.
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+TIF(8): Last Encoded strip had 1376 bytes.
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+TIF(8): Last Encoded strip had 1376 bytes.
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+TIF(8): Last Encoded strip had 1376 bytes.
+TIF(8): Last Encoded strip had 1376 bytes.
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+TIF(8): Last Encoded strip had 1376 bytes.
+TIF(8): Last Encoded strip had 1376 bytes.
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/A1_7_2.tif].
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+TIF(8): Last Encoded strip had 1376 bytes.
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/A1_6_2.tif].
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+TIF(8): Last Encoded strip had 1376 bytes.
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/A1_5_2.tif].
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+TIF(8): Last Encoded strip had 1376 bytes.
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/A1_4_2.tif].
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+TIF(8): Last Encoded strip had 1376 bytes.
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/A1_3_2.tif].
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+TIF(8): Last Encoded strip had 1376 bytes.
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/A1_2_2.tif].
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+TIF(8): Last Encoded strip had 1376 bytes.
+*B: z scl [ws,hs] [x0,y0]
+0 8 [316,774] [0.000000,0.000000]
+Timer: MakeRasB took 1.050 seconds.
+
+---- Thumbnail matching ----
+Pretweaks start, best R=0.000
+PTWSweep  0: 0.106 0.127 0.189 0.251 0.405 0.905 0.620 0.315 0.193 0.135 0.106
+PTWSweep  1: 0.256 0.309 0.365 0.463 0.645 0.905 0.707 0.530 0.402 0.333 0.281
+PTWSweep  2: 0.196 0.244 0.270 0.362 0.509 0.905 0.759 0.464 0.326 0.242 0.201
+PTWSweep  3: 0.185 0.213 0.249 0.340 0.532 0.905 0.577 0.377 0.314 0.255 0.222
+PTWSweep  4: 0.317 0.380 0.459 0.569 0.752 0.905 0.807 0.661 0.520 0.418 0.353
+PTWIntrp  0: 0.997 @ 1.003
+PTWUsing  0
+PTWSweep  1: 0.283 0.343 0.411 0.526 0.751 0.997 0.714 0.534 0.416 0.349 0.290
+PTWSweep  2: 0.190 0.239 0.282 0.373 0.528 0.997 0.668 0.426 0.310 0.225 0.198
+PTWSweep  3: 0.176 0.209 0.238 0.346 0.527 0.997 0.605 0.369 0.299 0.246 0.217
+PTWSweep  4: 0.314 0.370 0.446 0.555 0.740 0.997 0.852 0.661 0.509 0.407 0.351
+PTWIntrp  1: 1.014 @ 0.999
+PTWUsing  1
+PTWSweep  2: 0.192 0.244 0.284 0.377 0.535 1.014 0.678 0.432 0.311 0.227 0.201
+PTWSweep  3: 0.176 0.210 0.238 0.346 0.528 1.014 0.607 0.367 0.300 0.245 0.215
+PTWSweep  4: 0.315 0.375 0.453 0.564 0.755 1.014 0.860 0.664 0.516 0.413 0.354
+PTWIntrp  2: 1.081 @ 1.002
+PTWUsing  2
+PTWSweep  3: 0.177 0.209 0.243 0.344 0.535 1.081 0.615 0.369 0.293 0.249 0.212
+PTWSweep  4: 0.316 0.375 0.454 0.565 0.764 1.081 0.911 0.670 0.513 0.415 0.355
+PTWIntrp  3: 1.081 @ 0.000
+Timer: Pretweaks took 8.570 seconds.
+Approx: Pretweak  1.0020  0.0000     0.00    0.0000  1.0045     0.00
+AngleScan: center=0.000, hlfwid=4.000, step=0.200
+Center: R= 1.081, A=   0.000, X=  -32.15, Y=   21.91
+  Scan: R= 0.852, A=  -0.400, X=  -35.75, Y=   23.12
+  Scan: R= 0.910, A=  -0.333, X=  -35.06, Y=   22.91
+  Scan: R= 0.932, A=  -0.267, X=  -34.50, Y=   22.78
+  Scan: R= 1.009, A=  -0.200, X=  -33.85, Y=   22.49
+  Scan: R= 1.049, A=  -0.133, X=  -33.27, Y=   22.21
+  Scan: R= 1.098, A=  -0.067, X=  -32.83, Y=   22.04
+  Scan: R= 1.081, A=  -0.000, X=  -32.15, Y=   21.91
+  Scan: R= 1.038, A=   0.067, X=  -31.66, Y=   21.65
+  Scan: R= 1.011, A=   0.133, X=  -30.93, Y=   21.62
+  Scan: R= 0.944, A=   0.200, X=  -30.65, Y=   21.15
+  Scan: R= 0.932, A=   0.267, X=  -29.95, Y=   21.14
+  Scan: R= 0.897, A=   0.333, X=  -29.22, Y=   21.07
+  Scan: R= 0.840, A=   0.400, X=  -28.48, Y=   20.98
+  Scan: R= 0.162, A=  -4.000, X=  -70.17, Y=   36.18
+  Scan: R= 0.176, A=  -3.800, X=  -68.47, Y=   36.02
+  Scan: R= 0.183, A=  -3.600, X=  -67.33, Y=   33.90
+  Scan: R= 0.194, A=  -3.400, X=  -67.09, Y=   32.99
+  Scan: R= 0.200, A=  -3.200, X=  -66.53, Y=   33.32
+  Scan: R= 0.205, A=  -3.000, X=  -63.95, Y=   31.10
+  Scan: R= 0.213, A=  -2.800, X=  -61.08, Y=   30.42
+  Scan: R= 0.222, A=  -2.600, X=  -57.38, Y=   32.22
+  Scan: R= 0.241, A=  -2.400, X=  -54.48, Y=   27.95
+  Scan: R= 0.265, A=  -2.200, X=  -53.59, Y=   27.29
+  Scan: R= 0.282, A=  -2.000, X=  -52.59, Y=   26.70
+  Scan: R= 0.306, A=  -1.800, X=  -49.19, Y=   26.87
+  Scan: R= 0.341, A=  -1.600, X=  -46.29, Y=   25.23
+  Scan: R= 0.394, A=  -1.400, X=  -45.09, Y=   25.07
+  Scan: R= 0.451, A=  -1.200, X=  -43.63, Y=   24.70
+  Scan: R= 0.522, A=  -1.000, X=  -42.08, Y=   24.32
+  Scan: R= 0.601, A=  -0.800, X=  -40.00, Y=   24.18
+  Scan: R= 0.698, A=  -0.600, X=  -37.79, Y=   23.48
+  Scan: R= 0.852, A=  -0.400, X=  -35.75, Y=   23.12
+  Scan: R= 1.009, A=  -0.200, X=  -33.85, Y=   22.49
+  Scan: R= 1.081, A=   0.000, X=  -32.15, Y=   21.91
+  Scan: R= 0.944, A=   0.200, X=  -30.65, Y=   21.15
+  Scan: R= 0.840, A=   0.400, X=  -28.48, Y=   20.98
+  Scan: R= 0.711, A=   0.600, X=  -27.11, Y=   20.29
+  Scan: R= 0.603, A=   0.800, X=  -24.79, Y=   19.78
+  Scan: R= 0.515, A=   1.000, X=  -23.13, Y=   19.15
+  Scan: R= 0.453, A=   1.200, X=  -21.46, Y=   18.12
+  Scan: R= 0.396, A=   1.400, X=  -20.36, Y=   17.38
+  Scan: R= 0.352, A=   1.600, X=  -20.95, Y=   16.42
+  Scan: R= 0.306, A=   1.800, X=  -20.72, Y=   16.13
+  Scan: R= 0.283, A=   2.000, X=  -19.73, Y=   15.88
+  Scan: R= 0.259, A=   2.200, X=  -18.08, Y=   15.67
+  Scan: R= 0.246, A=   2.400, X=   -6.90, Y=   17.89
+  Scan: R= 0.231, A=   2.600, X=   -6.37, Y=   17.26
+  Scan: R= 0.234, A=   2.800, X=   -3.64, Y=   10.94
+  Scan: R= 0.222, A=   3.000, X=   -1.95, Y=   10.63
+  Scan: R= 0.205, A=   3.200, X=   -0.67, Y=    9.88
+  Scan: R= 0.193, A=   3.400, X=    0.99, Y=   10.04
+  Scan: R= 0.178, A=   3.600, X=    1.44, Y=    8.74
+  Scan: R= 0.168, A=   3.800, X=    2.07, Y=    8.24
+  Best: R= 1.098, A=  -0.067, X=  -32.83, Y=   22.04
+Timer: AngleScan took 1.860 seconds.
+AngleScan: center=-0.067, hlfwid=0.400, step=0.010
+Center: R= 1.098, A=  -0.067, X=  -32.83, Y=   22.04
+  Scan: R= 0.779, A=  -0.467, X=  -36.48, Y=   23.16
+  Scan: R= 0.793, A=  -0.457, X=  -36.31, Y=   23.16
+  Scan: R= 0.807, A=  -0.447, X=  -36.18, Y=   23.15
+  Scan: R= 0.820, A=  -0.437, X=  -36.07, Y=   23.15
+  Scan: R= 0.830, A=  -0.427, X=  -35.97, Y=   23.14
+  Scan: R= 0.840, A=  -0.417, X=  -35.89, Y=   23.14
+  Scan: R= 0.848, A=  -0.407, X=  -35.80, Y=   23.13
+  Scan: R= 0.854, A=  -0.397, X=  -35.73, Y=   23.12
+  Scan: R= 0.858, A=  -0.387, X=  -35.65, Y=   23.11
+  Scan: R= 0.859, A=  -0.377, X=  -35.57, Y=   23.11
+  Scan: R= 0.862, A=  -0.367, X=  -35.45, Y=   22.94
+  Scan: R= 0.878, A=  -0.357, X=  -35.31, Y=   22.93
+  Scan: R= 0.892, A=  -0.347, X=  -35.19, Y=   22.92
+  Scan: R= 0.906, A=  -0.337, X=  -35.09, Y=   22.91
+  Scan: R= 0.918, A=  -0.327, X=  -35.01, Y=   22.90
+  Scan: R= 0.928, A=  -0.317, X=  -34.93, Y=   22.88
+  Scan: R= 0.935, A=  -0.307, X=  -34.85, Y=   22.87
+  Scan: R= 0.939, A=  -0.297, X=  -34.77, Y=   22.85
+  Scan: R= 0.940, A=  -0.287, X=  -34.69, Y=   22.83
+  Scan: R= 0.938, A=  -0.277, X=  -34.61, Y=   22.81
+  Scan: R= 0.932, A=  -0.267, X=  -34.50, Y=   22.78
+  Scan: R= 0.950, A=  -0.257, X=  -34.38, Y=   22.60
+  Scan: R= 0.967, A=  -0.247, X=  -34.28, Y=   22.59
+  Scan: R= 0.982, A=  -0.237, X=  -34.19, Y=   22.57
+  Scan: R= 0.993, A=  -0.227, X=  -34.11, Y=   22.56
+  Scan: R= 1.002, A=  -0.217, X=  -34.04, Y=   22.54
+  Scan: R= 1.006, A=  -0.207, X=  -33.97, Y=   22.51
+  Scan: R= 1.010, A=  -0.197, X=  -33.83, Y=   22.49
+  Scan: R= 1.014, A=  -0.187, X=  -33.76, Y=   22.46
+  Scan: R= 1.015, A=  -0.177, X=  -33.69, Y=   22.43
+  Scan: R= 1.012, A=  -0.167, X=  -33.61, Y=   22.40
+  Scan: R= 1.004, A=  -0.157, X=  -33.51, Y=   22.38
+  Scan: R= 1.024, A=  -0.147, X=  -33.39, Y=   22.24
+  Scan: R= 1.043, A=  -0.137, X=  -33.30, Y=   22.22
+  Scan: R= 1.060, A=  -0.127, X=  -33.21, Y=   22.20
+  Scan: R= 1.073, A=  -0.117, X=  -33.14, Y=   22.17
+  Scan: R= 1.085, A=  -0.107, X=  -33.08, Y=   22.14
+  Scan: R= 1.095, A=  -0.097, X=  -33.01, Y=   22.11
+  Scan: R= 1.102, A=  -0.087, X=  -32.95, Y=   22.09
+  Scan: R= 1.103, A=  -0.077, X=  -32.89, Y=   22.06
+  Scan: R= 1.098, A=  -0.067, X=  -32.83, Y=   22.04
+  Scan: R= 1.087, A=  -0.057, X=  -32.75, Y=   22.01
+  Scan: R= 1.071, A=  -0.047, X=  -32.67, Y=   21.98
+  Scan: R= 1.052, A=  -0.037, X=  -32.57, Y=   21.93
+  Scan: R= 1.045, A=  -0.027, X=  -32.45, Y=   22.01
+  Scan: R= 1.061, A=  -0.017, X=  -32.32, Y=   21.97
+  Scan: R= 1.074, A=  -0.007, X=  -32.21, Y=   21.93
+  Scan: R= 1.084, A=   0.003, X=  -32.12, Y=   21.89
+  Scan: R= 1.091, A=   0.013, X=  -32.04, Y=   21.86
+  Scan: R= 1.093, A=   0.023, X=  -31.98, Y=   21.83
+  Scan: R= 1.089, A=   0.033, X=  -31.91, Y=   21.79
+  Scan: R= 1.079, A=   0.043, X=  -31.85, Y=   21.75
+  Scan: R= 1.064, A=   0.053, X=  -31.78, Y=   21.71
+  Scan: R= 1.045, A=   0.063, X=  -31.70, Y=   21.67
+  Scan: R= 1.021, A=   0.073, X=  -31.59, Y=   21.61
+  Scan: R= 1.006, A=   0.083, X=  -31.45, Y=   21.83
+  Scan: R= 1.014, A=   0.093, X=  -31.30, Y=   21.80
+  Scan: R= 1.020, A=   0.103, X=  -31.18, Y=   21.76
+  Scan: R= 1.021, A=   0.113, X=  -31.08, Y=   21.71
+  Scan: R= 1.019, A=   0.123, X=  -31.00, Y=   21.67
+  Scan: R= 1.011, A=   0.133, X=  -30.93, Y=   21.62
+  Scan: R= 0.998, A=   0.143, X=  -30.86, Y=   21.56
+  Scan: R= 0.980, A=   0.153, X=  -31.09, Y=   21.50
+  Scan: R= 0.976, A=   0.163, X=  -31.01, Y=   21.42
+  Scan: R= 0.969, A=   0.173, X=  -30.93, Y=   21.34
+  Scan: R= 0.960, A=   0.183, X=  -30.83, Y=   21.26
+  Scan: R= 0.951, A=   0.193, X=  -30.73, Y=   21.20
+  Scan: R= 0.940, A=   0.203, X=  -30.61, Y=   21.13
+  Scan: R= 0.932, A=   0.213, X=  -30.48, Y=   21.47
+  Scan: R= 0.939, A=   0.223, X=  -30.37, Y=   21.40
+  Scan: R= 0.943, A=   0.233, X=  -30.27, Y=   21.33
+  Scan: R= 0.943, A=   0.243, X=  -30.17, Y=   21.27
+  Scan: R= 0.940, A=   0.253, X=  -30.08, Y=   21.22
+  Scan: R= 0.935, A=   0.263, X=  -29.98, Y=   21.16
+  Scan: R= 0.927, A=   0.273, X=  -29.88, Y=   21.11
+  Scan: R= 0.919, A=   0.283, X=  -29.76, Y=   21.06
+  Scan: R= 0.908, A=   0.293, X=  -29.63, Y=   21.02
+  Scan: R= 0.897, A=   0.303, X=  -29.50, Y=   21.20
+  Scan: R= 0.900, A=   0.313, X=  -29.40, Y=   21.16
+  Scan: R= 0.900, A=   0.323, X=  -29.30, Y=   21.11
+  Best: R= 1.103, A=  -0.077, X=  -32.89, Y=   22.06
+Timer: AngleScan took 2.930 seconds.
+PeakHunt: Best: K=7, R=1.103, A=-0.079, X=-32.908, Y=22.071
+Timer: PeakHunt took 3.100 seconds.
+*T: [0,1,2,3,4,5] (block-block)
+[1.002045,0.001392,-32.908269,-0.001388,1.004499,22.070594]
+Timer: Corr took 16.460 seconds.
+Block coverage prime 1.00 scdry 1.00  Z 0
+Final coverage prime 1.00 scdry 1.00 ntiles 14
+
+--- Write Files ----
+
+
+---- Memory ----
+Host name: h09u24.int.janelia.org
+PID:       6976
+User time:      74 seconds.
+System time:     8 seconds.
+VmPeak:	 1327216 kB
+VmSize:	  649664 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	  924728 kB
+VmRSS:	   32816 kB
+VmData:	  483264 kB
+VmStk:	     160 kB
+VmExe:	     764 kB
+VmLib:	   82640 kB
+VmPTE:	     516 kB
+VmSwap:	       0 kB
+voluntary_ctxt_switches:	1064
+nonvoluntary_ctxt_switches:	296
+

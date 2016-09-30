@@ -1,0 +1,170 @@
+
+---- dmesh start ----
+main: Start: Mon Aug  4 19:34:53 2014
+
+
+---- Match parameters ----
+PXBRO=2            <default 2>        "Max Legendre poly order for bkg removal"
+PXLENS=N           <default N>        "Y=Apply IDB/lens.txt"
+PXRESMSK=N         <default N>        "Y=Apply resin mask"
+PXDOG=N            <default N>        "Y=Apply DoG filter"
+PXDOG_R1=3         <default 3>        "DoG inner radius"
+PXDOG_R2=6         <default 6>        "DoG outer radius"
+FLD=N              <default X>        "Mask usage: Y=Use, N=None, X=XL only"
+PRETWEAK=N         <default N>        "Y=Auto-distort before angle scan"
+SCALE=1            <default 1.0>      "Image-B / image-A scale factor"
+XSCALE=1           <default 1.0>      "Image-B / image-A x-axis scale factor"
+YSCALE=1           <default 1.0>      "Image-B / image-A y-axis scale factor"
+SKEW=0             <default 0.0>      "Transform elem[3] user-applied distortion"
+MODE_SL=M          <default Z>        "Notes above"
+MODE_XL=N          <default Y>        "Notes above"
+TAB2DFM_SL=N       <default Y>        "Adopt Tdfm from Tab"
+TAB2DFM_XL=Y       <default Y>        "Adopt Tdfm from Tab"
+XYCONF_SL=1.0      <default 0.0>      "[0,1.0] confidence in Tab XY"
+XYCONF_XL=0.8      <default 0.0>      "[0,1.0] confidence in Tab XY"
+THMDEC_SL=8        <default 8>        "2^N thumb decimation factor"
+THMDEC_XL=8        <default 8>        "2^N thumb decimation factor"
+OLAP1D_SL=0        <default 0>        "Min 1D pix full-size overlap"
+OLAP1D_XL=0        <default 0>        "Min 1D pix full-size overlap"
+OLAP2D_SL=60000    <default 25000>    "Min 2D pix full-size overlap"
+OLAP2D_XL=160000   <default 200000>   "Min 2D pix full-size overlap"
+NBMXHT_SL=0.75     <default 0.75>     "Max F(neib)/F(pk) in guard zone"
+NBMXHT_XL=0.75     <default 0.75>     "Max F(neib)/F(pk) in guard zone"
+HFANGDN_SL=5       <default 5.0>      "Half angle search range denovo"
+HFANGDN_XL=45      <default 45.0>     "Half angle search range denovo"
+HFANGPR_SL=1       <default 1.0>      "Half angle search range prior angles"
+HFANGPR_XL=4       <default 1.0>      "Half angle search range prior angles"
+RTRSH_SL=0.3       <default 0.3>      "R corr thresh"
+RTRSH_XL=0.3       <default 0.3>      "R corr thresh"
+TWEAKS=N           <default N>        "Y=Try 8 near unity distortions"
+LIMXY_SL=30        <default 0>        "0 or Max XY delta from Tab"
+LIMXY_XL=80        <default 0>        "0 or Max XY delta from Tab"
+OPT_SL=Y           <default Y(EM)>    "Y=Enable mesh optimizer"
+RIT_SL=0.50        <default 0.20>     "Min mesh starting corr"
+RIT_XL=0.1         <default 0.20>     "Min mesh starting corr"
+RFA_SL=0.55        <default 0.3>      "Affine-only final corr"
+RFA_XL=0.20        <default 0.3>      "Affine-only final corr"
+RFT_SL=0.65        <default 0.5>      "Full mesh final corr"
+RFT_XL=0.25        <default 0.5>      "Full mesh final corr"
+TMC=5              <default 30.0%>    "Max single triangle area change"
+TSC=9              <default 9.0%>     "Max summed triangle area change"
+MNL=250            <default 300>      "Triangle edges between MNL and 2*MNL"
+MTA=120000         <default 10000>    "Min triangle size (pixels)"
+MMA=60000          <default 100000>   "Min 2D overlap for mesh"
+ONE=N              <default N>        "Y=Use just one affine transform"
+IFM=0.50           <default 0.50>     "Min Fourier Metric after affine-only"
+FFM=0.65           <default 0.65>     "Min Fourier Metric after full mesh"
+FYL=0.5            <default 0.50>     "Min fraction of yellow pixels"
+CPD=0.5            <default 0.50>     "Min Correlation + DFM"
+EMM=Y              <default Y>        "Y=Use Earth Mover's Metric, N=Use Fourier"
+EMT=0.14           <default 0.2>      "Earth Movers Metric thresh"
+WDI=N              <default N>        "Y=Write diff images (Fourier, EMM metrics)"
+LDA=0.2            <default 0.2>      "Max radian delta between triangles"
+LDR=0.1            <default 0.1>      "Max sine delta between triangles"
+LDC=100            <default 100.0>    "Max XY delta between triangles"
+DXY=100            <default 100.0>    "Max delta from user input XYs"
+WMT=N              <default Y>        "Y=Write map.tif files"
+WTT=N              <default Y>        "Y=Write tf.txt files"
+
+
+---- Input images ----
+Til2Img entry: A T=[ 1.0000  0.0000  1142.00  0.0000  1.0000  3428.00] path=[/groups/apig/tomo/DEMO/TIF/C1_4_2.tif].
+Til2Img entry: B T=[ 1.0000  0.0000  1142.00  0.0000  1.0000  2571.00] path=[/groups/apig/tomo/DEMO/TIF/C1_3_2.tif].
+
+
+---- Command-line overrides ----
+Tdfm= 1.0000  0.0000     0.00    0.0000  1.0000     0.00
+FLD=N
+MODE=N (was M)
+CTR=0
+
+
+---- Image loading ----
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/C1_4_2.tif].
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+TIF(8): Last Encoded strip had 1376 bytes.
+Raster8FromTif: Opening [/groups/apig/tomo/DEMO/TIF/C1_3_2.tif].
+Raster8FromTif: Bits per sample 8, samples per pixel 1
+Raster8FromTif: Picture is 1376 by 1040, 1431040 pixels total.
+TIF(8): Last Encoded strip had 1376 bytes.
+PixPair: Using image scale=1.
+Timer: Image conditioning took 0.320 seconds.
+
+---- Foldmaps ----
+
+---- Connected regions ----
+Forcing single connected region.
+
+---- Begin A-1 to B-1 ----
+
+---- Thumbnail matching ----
+Subimage: Using intersection, w=1376, h=183, pix=251808
+Thumbs: After decimation 3956 pts, reqArea 937, thmscl 8
+SetDisc( 0, 0, 3, 3 )
+Corr: Region size is [0 171] in x, [0 22] in y.
+Corr: Target size is [0 171] in x, [0 22] in y.
+Corr: Nx = 512, Ny = 64
+Corr: Center = (171 22).
+Corr: R image range [  -1.000000    0.995125].
+Corr: S image range [  -1.982773   12.891690].
+top 29 by F:
+F 12.892 R 0.949 (x,y)=(171,23)
+F 12.603 R 0.937 (x,y)=(171,22)
+F 10.469 R 0.947 (x,y)=(172,23)
+F 10.315 R 0.933 (x,y)=(172,22)
+F 7.443 R 0.905 (x,y)=(170,22)
+F 6.697 R 0.904 (x,y)=(173,22)
+F 6.134 R 0.905 (x,y)=(171,24)
+F 5.908 R 0.873 (x,y)=(169,22)
+F 5.469 R 0.879 (x,y)=(174,22)
+F 5.357 R 0.904 (x,y)=(171,21)
+F 5.313 R 0.910 (x,y)=(172,24)
+F 5.119 R 0.844 (x,y)=(168,22)
+F 5.077 R 0.892 (x,y)=(170,21)
+F 4.973 R 0.903 (x,y)=(172,21)
+F 4.953 R 0.904 (x,y)=(170,23)
+F 4.712 R 0.911 (x,y)=(173,23)
+F 4.624 R 0.895 (x,y)=(173,24)
+F 4.382 R 0.888 (x,y)=(173,21)
+F 4.381 R 0.880 (x,y)=(170,24)
+F 4.348 R 0.879 (x,y)=(171,20)
+F 4.277 R 0.865 (x,y)=(171,25)
+F 4.165 R 0.868 (x,y)=(169,21)
+F 3.920 R 0.872 (x,y)=(170,20)
+F 3.840 R 0.870 (x,y)=(169,23)
+F 3.627 R 0.878 (x,y)=(172,20)
+F 3.445 R 0.852 (x,y)=(169,24)
+F 3.408 R 0.869 (x,y)=(173,20)
+F 3.367 R 0.855 (x,y)=(169,20)
+F 3.266 R 0.851 (x,y)=(171,19)
+Corr: Max corr 12.891690 at [dx,dy]=[0,1] (x,y)=(171,23).
+Initial: R= 2.081, A=   0.000, X=    0.27, Y=    0.54
+Pipe: Returning 0 total transforms.
+
+---- Summary Region-region results ----
+Pipe: Table Headers {Az t r Bz t r thmok ntri}
+FOUND:     2    4   1      2    3   1   0   0
+Timer: Alignment took 0.080 seconds.
+
+main: Got 0 mapping regions.
+
+main: Normal completion for dmesh run.
+Timer: Total took 0.410 seconds.
+
+---- Memory ----
+Host name: e02u21.int.janelia.org
+PID:       10419
+User time:       0 seconds.
+System time:     0 seconds.
+VmPeak:	  186764 kB
+VmSize:	  115628 kB
+VmLck:	       0 kB
+VmHWM:	  103184 kB
+VmRSS:	   32048 kB
+VmData:	   27904 kB
+VmStk:	      92 kB
+VmExe:	     800 kB
+VmLib:	   61312 kB
+VmPTE:	     224 kB
+

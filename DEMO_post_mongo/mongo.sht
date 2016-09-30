@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# Purpose:
+# Make alignment workspace 'temp' and create scripts within
+# to drive montaging pipeline steps.
+#
+# > makemontages temp -script=scriptpath -idb=idbpath -z=i,j
+#
+# Required:
+# temp					;workspace directory to create
+# -script=scriptpath	;alignment pipeline params file
+# -idb=idbpath			;path to idb directory
+# -z=i,j				;align layers in range z=[i..j]
+#
+# Options:
+# -exe=ptestalt			;exe other than 'ptest'
+
+
+wrk=temp0
+
+makemontages $wrk -script=/groups/apig/tomo/DEMO/prms/scriptparams.txt -idb=/groups/apig/tomo/DEMO/idb0 -z=0,2
+
+cp prms/* $wrk
+

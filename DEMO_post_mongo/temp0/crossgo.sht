@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Purpose:
+# Given folder of Z-file montage tforms (srcmons),
+# create workspace mytemp/cross_wkspc, and scripts
+# governing cross layer alignment.
+#
+# > cross_topscripts srcmons -script=scriptpath -z=i,j
+#
+# Required:
+# srcmons				;collected independent montages
+# -script=scriptpath	;alignment pipeline params file
+# -z=i,j				;align layers in range z=[i..j]
+
+
+cross_topscripts X_A_BIN_mons -script=/groups/apig/tomo/DEMO/prms/scriptparams.txt -z=0,2
+

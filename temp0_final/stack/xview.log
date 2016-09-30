@@ -1,0 +1,5 @@
+Start: Fri Sep 30 13:55:04 2016 X_A_BIN -idb=/groups/apig/tomo/DEMO/idb0 -z=0,2 z [0 2]
+-degcw=0 -type=X 
+
+Timer: Convert took 0.060 seconds.
+

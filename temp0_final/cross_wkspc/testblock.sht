@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# Purpose:
+# Put this script into a Dx_y folder to try or debug block.
+#
+# Options:
+# -evalalldz		;force evaluation of all maxdz layers
+# -abdbg			;make diagnostic images and exit (Z^Z-1)
+# -abdbg=k			;make diagnostic images and exit (Z^k)
+# -abctr=0			;debug at this a-to-b angle
+
+
+export MRC_TRIM=12
+
+QSUB_1NODE.sht 7 "x" "" 8 "cross_thisblock -script=/groups/apig/tomo/DEMO/prms/scriptparams.txt"
+

@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# Purpose:
+# Sixth step in cross-layer alignment.
+#
+# Run this after bsub completes to compile tables
+# of block alignment errors, FAILs and make sizes.
+#
+# > ./breport.sht
+
+
+ls -l ../*/D*/xD*.e* > BlockErrs.txt
+
+ls -l ../*/D*/xD*.o* > BlockOuts.txt
+
+ls -l ../*/D*/make.down > BlockMakes.txt
+
+grep FAIL ../*/D*/cross_thisblock.log > BlockFAIL.txt
+
+grep -e "Final coverage" ../*/D*/cross_thisblock.log > BlockCoverage.txt
+
+grep -e "PeakHunt: Best" ../*/D*/cross_thisblock.log > BlockTForms.txt
+

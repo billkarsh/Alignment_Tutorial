@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# Purpose:
+# Third step in cross-layer alignment.
+#
+# Apply the coarse layer-layer tforms from 'LowRes.xml' to the
+# individual tiles in srcmons. The new coarsely aligned stack
+# will be created in cross_wkspc and will be named X_A_BIN_scaf
+# or X_A_TXT_scaf following the type of srcmons. The scaffold
+# serves both as the input for the block-block alignment, and
+# as the starting guess for the final LSQ alignment.
+#
+# > cross_scaffold srcmons -z=i,j [options]
+#
+# Required:
+# srcmons				;collected independent montages
+# -z=i,j				;align layers in range z=[i..j]
+#
+# Options:
+# -lowres=LowRes.xml	;alternate coarse alignment reference
+
+
+cross_scaffold /groups/apig/tomo/DEMO/temp0/X_A_BIN_mons -z=0,2
+

@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# Purpose:
+# Create (in CWD) top-level scripts for running alignment.
+#
+# > topscripts inpath -script=scriptpath -idb=idbpath -z=i,j
+#
+# Required:
+# inPath				;mylayout.txt or myxml.xml file
+# -script=scriptpath	;alignment pipeline params file
+# -idb=idbpath			;idb folder to create
+# -z=i,j				;align layers in range z=[i..j]
+
+
+export MRC_TRIM=12
+
+topscripts layout.txt -script=prms/scriptparams.txt -idb=idb0 -z=0,2
+

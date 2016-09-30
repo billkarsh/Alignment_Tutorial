@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# Purpose:
+# Make image database 'idb' from text 'billfile' or xml file...
+#
+# > makeidb inpath -script=scriptpath -idb=idbpath -z=i,j
+#
+# Required:
+# inPath				;mylayout.txt or myxml.xml file
+# -script=scriptpath	;alignment pipeline params file
+# -idb=idbpath			;idb folder to create
+# -z=i,j				;process layers in range z=[i..j]
+#
+# NOTE: Omit -idb parameter to generate RawData.xml.
+
+
+export MRC_TRIM=12
+
+makeidb layout.txt -script=/groups/apig/tomo/DEMO/prms/scriptparams.txt -idb=/groups/apig/tomo/DEMO/idb0 -z=0,2
+
+#makeidb layout.txt -script=/groups/apig/tomo/DEMO/prms/scriptparams.txt -idb= -z=0,2
+

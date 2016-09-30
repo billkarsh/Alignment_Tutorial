@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# Purpose:
+# Fourth step in cross-layer alignment.
+#
+# Carve each scaffold layer into blocks of size crossblocksize
+# and create new script 'bsub.sht' to distribute block-block
+# alignment jobs to cluster.
+#
+# > cross_carveblocks srcscaf -script=scriptpath -z=i,j
+#
+# Required:
+# srcscaf				;scaffold created by scafgo.sht
+# -script=scriptpath	;alignment pipeline params file
+# -z=i,j				;align layers in range z=[i..j]
+
+
+cross_carveblocks /groups/apig/tomo/DEMO/temp0/cross_wkspc/X_A_BIN_scaf -script=/groups/apig/tomo/DEMO/prms/scriptparams.txt -z=0,2
+

@@ -1,0 +1,637 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE trakem2_anything [
+	<!ELEMENT trakem2 (project,t2_layer_set,t2_display)>
+	<!ELEMENT project (anything)>
+	<!ATTLIST project id NMTOKEN #REQUIRED>
+	<!ATTLIST project title NMTOKEN #REQUIRED>
+	<!ATTLIST project preprocessor NMTOKEN #REQUIRED>
+	<!ATTLIST project mipmaps_folder NMTOKEN #REQUIRED>
+	<!ATTLIST project storage_folder NMTOKEN #REQUIRED>
+	<!ELEMENT anything EMPTY>
+	<!ATTLIST anything id NMTOKEN #REQUIRED>
+	<!ATTLIST anything expanded NMTOKEN #REQUIRED>
+	<!ELEMENT t2_layer (t2_patch,t2_label,t2_layer_set,t2_profile)>
+	<!ATTLIST t2_layer oid NMTOKEN #REQUIRED>
+	<!ATTLIST t2_layer thickness NMTOKEN #REQUIRED>
+	<!ATTLIST t2_layer z NMTOKEN #REQUIRED>
+	<!ELEMENT t2_layer_set (t2_layer,t2_pipe,t2_ball,t2_area_list,t2_calibration)>
+	<!ATTLIST t2_layer_set oid NMTOKEN #REQUIRED>
+	<!ATTLIST t2_layer_set layer_id NMTOKEN #REQUIRED>
+	<!ATTLIST t2_layer_set transform NMTOKEN #REQUIRED>
+	<!ATTLIST t2_layer_set style NMTOKEN #REQUIRED>
+	<!ATTLIST t2_layer_set locked NMTOKEN #REQUIRED>
+	<!ATTLIST t2_layer_set visible NMTOKEN #REQUIRED>
+	<!ATTLIST t2_layer_set title NMTOKEN #REQUIRED>
+	<!ATTLIST t2_layer_set links NMTOKEN #REQUIRED>
+	<!ATTLIST t2_layer_set layer_width NMTOKEN #REQUIRED>
+	<!ATTLIST t2_layer_set layer_height NMTOKEN #REQUIRED>
+	<!ATTLIST t2_layer_set rot_x NMTOKEN #REQUIRED>
+	<!ATTLIST t2_layer_set rot_y NMTOKEN #REQUIRED>
+	<!ATTLIST t2_layer_set rot_z NMTOKEN #REQUIRED>
+	<!ATTLIST t2_layer_set snapshots_quality NMTOKEN #REQUIRED>
+	<!ATTLIST t2_layer_set snapshots_mode NMTOKEN #REQUIRED>
+	<!ELEMENT t2_calibration EMPTY>
+	<!ATTLIST t2_calibration pixelWidth NMTOKEN #REQUIRED>
+	<!ATTLIST t2_calibration pixelHeight NMTOKEN #REQUIRED>
+	<!ATTLIST t2_calibration pixelDepth NMTOKEN #REQUIRED>
+	<!ATTLIST t2_calibration xOrigin NMTOKEN #REQUIRED>
+	<!ATTLIST t2_calibration yOrigin NMTOKEN #REQUIRED>
+	<!ATTLIST t2_calibration zOrigin NMTOKEN #REQUIRED>
+	<!ATTLIST t2_calibration info NMTOKEN #REQUIRED>
+	<!ATTLIST t2_calibration valueUnit NMTOKEN #REQUIRED>
+	<!ATTLIST t2_calibration timeUnit NMTOKEN #REQUIRED>
+	<!ATTLIST t2_calibration unit NMTOKEN #REQUIRED>
+	<!ELEMENT t2_ball (t2_ball_ob)>
+	<!ATTLIST t2_ball oid NMTOKEN #REQUIRED>
+	<!ATTLIST t2_ball layer_id NMTOKEN #REQUIRED>
+	<!ATTLIST t2_ball transform NMTOKEN #REQUIRED>
+	<!ATTLIST t2_ball style NMTOKEN #REQUIRED>
+	<!ATTLIST t2_ball locked NMTOKEN #REQUIRED>
+	<!ATTLIST t2_ball visible NMTOKEN #REQUIRED>
+	<!ATTLIST t2_ball title NMTOKEN #REQUIRED>
+	<!ATTLIST t2_ball links NMTOKEN #REQUIRED>
+	<!ELEMENT t2_ball_ob EMPTY>
+	<!ATTLIST t2_ball_ob x NMTOKEN #REQUIRED>
+	<!ATTLIST t2_ball_ob y NMTOKEN #REQUIRED>
+	<!ATTLIST t2_ball_ob r NMTOKEN #REQUIRED>
+	<!ATTLIST t2_ball_ob layer_id NMTOKEN #REQUIRED>
+	<!ELEMENT t2_label EMPTY>
+	<!ATTLIST t2_label oid NMTOKEN #REQUIRED>
+	<!ATTLIST t2_label layer_id NMTOKEN #REQUIRED>
+	<!ATTLIST t2_label transform NMTOKEN #REQUIRED>
+	<!ATTLIST t2_label style NMTOKEN #REQUIRED>
+	<!ATTLIST t2_label locked NMTOKEN #REQUIRED>
+	<!ATTLIST t2_label visible NMTOKEN #REQUIRED>
+	<!ATTLIST t2_label title NMTOKEN #REQUIRED>
+	<!ATTLIST t2_label links NMTOKEN #REQUIRED>
+	<!ELEMENT t2_patch EMPTY>
+	<!ATTLIST t2_patch oid NMTOKEN #REQUIRED>
+	<!ATTLIST t2_patch layer_id NMTOKEN #REQUIRED>
+	<!ATTLIST t2_patch transform NMTOKEN #REQUIRED>
+	<!ATTLIST t2_patch style NMTOKEN #REQUIRED>
+	<!ATTLIST t2_patch locked NMTOKEN #REQUIRED>
+	<!ATTLIST t2_patch visible NMTOKEN #REQUIRED>
+	<!ATTLIST t2_patch title NMTOKEN #REQUIRED>
+	<!ATTLIST t2_patch links NMTOKEN #REQUIRED>
+	<!ATTLIST t2_patch file_path NMTOKEN #REQUIRED>
+	<!ATTLIST t2_patch original_path NMTOKEN #REQUIRED>
+	<!ATTLIST t2_patch type NMTOKEN #REQUIRED>
+	<!ELEMENT t2_pipe EMPTY>
+	<!ATTLIST t2_pipe oid NMTOKEN #REQUIRED>
+	<!ATTLIST t2_pipe layer_id NMTOKEN #REQUIRED>
+	<!ATTLIST t2_pipe transform NMTOKEN #REQUIRED>
+	<!ATTLIST t2_pipe style NMTOKEN #REQUIRED>
+	<!ATTLIST t2_pipe locked NMTOKEN #REQUIRED>
+	<!ATTLIST t2_pipe visible NMTOKEN #REQUIRED>
+	<!ATTLIST t2_pipe title NMTOKEN #REQUIRED>
+	<!ATTLIST t2_pipe links NMTOKEN #REQUIRED>
+	<!ATTLIST t2_pipe d NMTOKEN #REQUIRED>
+	<!ATTLIST t2_pipe p_width NMTOKEN #REQUIRED>
+	<!ELEMENT t2_profile EMPTY>
+	<!ATTLIST t2_profile oid NMTOKEN #REQUIRED>
+	<!ATTLIST t2_profile layer_id NMTOKEN #REQUIRED>
+	<!ATTLIST t2_profile transform NMTOKEN #REQUIRED>
+	<!ATTLIST t2_profile style NMTOKEN #REQUIRED>
+	<!ATTLIST t2_profile locked NMTOKEN #REQUIRED>
+	<!ATTLIST t2_profile visible NMTOKEN #REQUIRED>
+	<!ATTLIST t2_profile title NMTOKEN #REQUIRED>
+	<!ATTLIST t2_profile links NMTOKEN #REQUIRED>
+	<!ATTLIST t2_profile d NMTOKEN #REQUIRED>
+	<!ELEMENT t2_area_list (t2_area)>
+	<!ATTLIST t2_area_list oid NMTOKEN #REQUIRED>
+	<!ATTLIST t2_area_list layer_id NMTOKEN #REQUIRED>
+	<!ATTLIST t2_area_list transform NMTOKEN #REQUIRED>
+	<!ATTLIST t2_area_list style NMTOKEN #REQUIRED>
+	<!ATTLIST t2_area_list locked NMTOKEN #REQUIRED>
+	<!ATTLIST t2_area_list visible NMTOKEN #REQUIRED>
+	<!ATTLIST t2_area_list title NMTOKEN #REQUIRED>
+	<!ATTLIST t2_area_list links NMTOKEN #REQUIRED>
+	<!ATTLIST t2_area_list fill_paint NMTOKEN #REQUIRED>
+	<!ELEMENT t2_area (t2_path)>
+	<!ATTLIST t2_area layer_id NMTOKEN #REQUIRED>
+	<!ELEMENT t2_path EMPTY>
+	<!ATTLIST t2_path d NMTOKEN #REQUIRED>
+	<!ELEMENT t2_dissector (t2_dd_item)>
+	<!ATTLIST t2_dissector oid NMTOKEN #REQUIRED>
+	<!ATTLIST t2_dissector layer_id NMTOKEN #REQUIRED>
+	<!ATTLIST t2_dissector transform NMTOKEN #REQUIRED>
+	<!ATTLIST t2_dissector style NMTOKEN #REQUIRED>
+	<!ATTLIST t2_dissector locked NMTOKEN #REQUIRED>
+	<!ATTLIST t2_dissector visible NMTOKEN #REQUIRED>
+	<!ATTLIST t2_dissector title NMTOKEN #REQUIRED>
+	<!ATTLIST t2_dissector links NMTOKEN #REQUIRED>
+	<!ELEMENT t2_dd_item EMPTY>
+	<!ATTLIST t2_dd_item radius NMTOKEN #REQUIRED>
+	<!ATTLIST t2_dd_item tag NMTOKEN #REQUIRED>
+	<!ATTLIST t2_dd_item points NMTOKEN #REQUIRED>
+	<!ELEMENT t2_display EMPTY>
+	<!ATTLIST t2_display id NMTOKEN #REQUIRED>
+	<!ATTLIST t2_display layer_id NMTOKEN #REQUIRED>
+	<!ATTLIST t2_display x NMTOKEN #REQUIRED>
+	<!ATTLIST t2_display y NMTOKEN #REQUIRED>
+	<!ATTLIST t2_display magnification NMTOKEN #REQUIRED>
+	<!ATTLIST t2_display srcrect_x NMTOKEN #REQUIRED>
+	<!ATTLIST t2_display srcrect_y NMTOKEN #REQUIRED>
+	<!ATTLIST t2_display srcrect_width NMTOKEN #REQUIRED>
+	<!ATTLIST t2_display srcrect_height NMTOKEN #REQUIRED>
+	<!ATTLIST t2_display scroll_step NMTOKEN #REQUIRED>
+	<!ATTLIST t2_display c_alphas NMTOKEN #REQUIRED>
+	<!ATTLIST t2_display c_alphas_state NMTOKEN #REQUIRED>
+] >
+
+<trakem2>
+	<project
+		id="0"
+		title="Project"
+		mipmaps_folder="trakem2.mipmaps/"
+		n_mipmap_threads="8"
+	/>
+	<t2_layer_set
+		oid="3"
+		transform="matrix(1,0,0,1,0,0)"
+		title="Top level"
+		layer_width="2518.00"
+		layer_height="6182.00"
+	>
+		<t2_layer
+			oid="4"
+			thickness="0"
+			z="0"
+		>
+			<t2_patch
+				oid="5"
+				width="1376"
+				height="1040"
+				transform="matrix(1.000000,0.000000,0.000000,1.000000,1142.000000,0.000000)"
+				title="0.0-1"
+				type="0"
+				file_path="/groups/apig/tomo/DEMO/TIF/A1_0_2.tif"
+				o_width="1376"
+				o_height="1040"
+			/>
+			<t2_patch
+				oid="6"
+				width="1376"
+				height="1040"
+				transform="matrix(1.000000,0.000000,0.000000,1.000000,1142.000000,857.000000)"
+				title="0.1-1"
+				type="0"
+				file_path="/groups/apig/tomo/DEMO/TIF/A1_1_2.tif"
+				o_width="1376"
+				o_height="1040"
+			/>
+			<t2_patch
+				oid="7"
+				width="1376"
+				height="1040"
+				transform="matrix(1.000000,0.000000,0.000000,1.000000,1142.000000,1714.000000)"
+				title="0.2-1"
+				type="0"
+				file_path="/groups/apig/tomo/DEMO/TIF/A1_2_2.tif"
+				o_width="1376"
+				o_height="1040"
+			/>
+			<t2_patch
+				oid="8"
+				width="1376"
+				height="1040"
+				transform="matrix(1.000000,0.000000,0.000000,1.000000,1142.000000,2571.000000)"
+				title="0.3-1"
+				type="0"
+				file_path="/groups/apig/tomo/DEMO/TIF/A1_3_2.tif"
+				o_width="1376"
+				o_height="1040"
+			/>
+			<t2_patch
+				oid="9"
+				width="1376"
+				height="1040"
+				transform="matrix(1.000000,0.000000,0.000000,1.000000,1142.000000,3428.000000)"
+				title="0.4-1"
+				type="0"
+				file_path="/groups/apig/tomo/DEMO/TIF/A1_4_2.tif"
+				o_width="1376"
+				o_height="1040"
+			/>
+			<t2_patch
+				oid="10"
+				width="1376"
+				height="1040"
+				transform="matrix(1.000000,0.000000,0.000000,1.000000,1142.000000,4285.000000)"
+				title="0.5-1"
+				type="0"
+				file_path="/groups/apig/tomo/DEMO/TIF/A1_5_2.tif"
+				o_width="1376"
+				o_height="1040"
+			/>
+			<t2_patch
+				oid="11"
+				width="1376"
+				height="1040"
+				transform="matrix(1.000000,0.000000,0.000000,1.000000,1142.000000,5142.000000)"
+				title="0.6-1"
+				type="0"
+				file_path="/groups/apig/tomo/DEMO/TIF/A1_6_2.tif"
+				o_width="1376"
+				o_height="1040"
+			/>
+			<t2_patch
+				oid="12"
+				width="1376"
+				height="1040"
+				transform="matrix(1.000000,0.000000,0.000000,1.000000,0.000000,5142.000000)"
+				title="0.7-1"
+				type="0"
+				file_path="/groups/apig/tomo/DEMO/TIF/A1_7_2.tif"
+				o_width="1376"
+				o_height="1040"
+			/>
+			<t2_patch
+				oid="13"
+				width="1376"
+				height="1040"
+				transform="matrix(1.000000,0.000000,0.000000,1.000000,0.000000,4285.000000)"
+				title="0.8-1"
+				type="0"
+				file_path="/groups/apig/tomo/DEMO/TIF/A1_8_2.tif"
+				o_width="1376"
+				o_height="1040"
+			/>
+			<t2_patch
+				oid="14"
+				width="1376"
+				height="1040"
+				transform="matrix(1.000000,0.000000,0.000000,1.000000,0.000000,3428.000000)"
+				title="0.9-1"
+				type="0"
+				file_path="/groups/apig/tomo/DEMO/TIF/A1_9_2.tif"
+				o_width="1376"
+				o_height="1040"
+			/>
+			<t2_patch
+				oid="15"
+				width="1376"
+				height="1040"
+				transform="matrix(1.000000,0.000000,0.000000,1.000000,0.000000,2571.000000)"
+				title="0.10-1"
+				type="0"
+				file_path="/groups/apig/tomo/DEMO/TIF/A1_10_2.tif"
+				o_width="1376"
+				o_height="1040"
+			/>
+			<t2_patch
+				oid="16"
+				width="1376"
+				height="1040"
+				transform="matrix(1.000000,0.000000,0.000000,1.000000,0.000000,1714.000000)"
+				title="0.11-1"
+				type="0"
+				file_path="/groups/apig/tomo/DEMO/TIF/A1_11_2.tif"
+				o_width="1376"
+				o_height="1040"
+			/>
+			<t2_patch
+				oid="17"
+				width="1376"
+				height="1040"
+				transform="matrix(1.000000,0.000000,0.000000,1.000000,0.000000,857.000000)"
+				title="0.12-1"
+				type="0"
+				file_path="/groups/apig/tomo/DEMO/TIF/A1_12_2.tif"
+				o_width="1376"
+				o_height="1040"
+			/>
+			<t2_patch
+				oid="18"
+				width="1376"
+				height="1040"
+				transform="matrix(1.000000,0.000000,0.000000,1.000000,0.000000,0.000000)"
+				title="0.13-1"
+				type="0"
+				file_path="/groups/apig/tomo/DEMO/TIF/A1_13_2.tif"
+				o_width="1376"
+				o_height="1040"
+			/>
+		</t2_layer>
+		<t2_layer
+			oid="19"
+			thickness="0"
+			z="1"
+		>
+			<t2_patch
+				oid="20"
+				width="1376"
+				height="1040"
+				transform="matrix(1.000000,0.000000,0.000000,1.000000,1142.000000,0.000000)"
+				title="1.0-1"
+				type="0"
+				file_path="/groups/apig/tomo/DEMO/TIF/B1_0_2.tif"
+				o_width="1376"
+				o_height="1040"
+			/>
+			<t2_patch
+				oid="21"
+				width="1376"
+				height="1040"
+				transform="matrix(1.000000,0.000000,0.000000,1.000000,1142.000000,857.000000)"
+				title="1.1-1"
+				type="0"
+				file_path="/groups/apig/tomo/DEMO/TIF/B1_1_2.tif"
+				o_width="1376"
+				o_height="1040"
+			/>
+			<t2_patch
+				oid="22"
+				width="1376"
+				height="1040"
+				transform="matrix(1.000000,0.000000,0.000000,1.000000,1142.000000,1714.000000)"
+				title="1.2-1"
+				type="0"
+				file_path="/groups/apig/tomo/DEMO/TIF/B1_2_2.tif"
+				o_width="1376"
+				o_height="1040"
+			/>
+			<t2_patch
+				oid="23"
+				width="1376"
+				height="1040"
+				transform="matrix(1.000000,0.000000,0.000000,1.000000,1142.000000,2571.000000)"
+				title="1.3-1"
+				type="0"
+				file_path="/groups/apig/tomo/DEMO/TIF/B1_3_2.tif"
+				o_width="1376"
+				o_height="1040"
+			/>
+			<t2_patch
+				oid="24"
+				width="1376"
+				height="1040"
+				transform="matrix(1.000000,0.000000,0.000000,1.000000,1142.000000,3428.000000)"
+				title="1.4-1"
+				type="0"
+				file_path="/groups/apig/tomo/DEMO/TIF/B1_4_2.tif"
+				o_width="1376"
+				o_height="1040"
+			/>
+			<t2_patch
+				oid="25"
+				width="1376"
+				height="1040"
+				transform="matrix(1.000000,0.000000,0.000000,1.000000,1142.000000,4285.000000)"
+				title="1.5-1"
+				type="0"
+				file_path="/groups/apig/tomo/DEMO/TIF/B1_5_2.tif"
+				o_width="1376"
+				o_height="1040"
+			/>
+			<t2_patch
+				oid="26"
+				width="1376"
+				height="1040"
+				transform="matrix(1.000000,0.000000,0.000000,1.000000,1142.000000,5142.000000)"
+				title="1.6-1"
+				type="0"
+				file_path="/groups/apig/tomo/DEMO/TIF/B1_6_2.tif"
+				o_width="1376"
+				o_height="1040"
+			/>
+			<t2_patch
+				oid="27"
+				width="1376"
+				height="1040"
+				transform="matrix(1.000000,0.000000,0.000000,1.000000,0.000000,5142.000000)"
+				title="1.7-1"
+				type="0"
+				file_path="/groups/apig/tomo/DEMO/TIF/B1_7_2.tif"
+				o_width="1376"
+				o_height="1040"
+			/>
+			<t2_patch
+				oid="28"
+				width="1376"
+				height="1040"
+				transform="matrix(1.000000,0.000000,0.000000,1.000000,0.000000,4285.000000)"
+				title="1.8-1"
+				type="0"
+				file_path="/groups/apig/tomo/DEMO/TIF/B1_8_2.tif"
+				o_width="1376"
+				o_height="1040"
+			/>
+			<t2_patch
+				oid="29"
+				width="1376"
+				height="1040"
+				transform="matrix(1.000000,0.000000,0.000000,1.000000,0.000000,3428.000000)"
+				title="1.9-1"
+				type="0"
+				file_path="/groups/apig/tomo/DEMO/TIF/B1_9_2.tif"
+				o_width="1376"
+				o_height="1040"
+			/>
+			<t2_patch
+				oid="30"
+				width="1376"
+				height="1040"
+				transform="matrix(1.000000,0.000000,0.000000,1.000000,0.000000,2571.000000)"
+				title="1.10-1"
+				type="0"
+				file_path="/groups/apig/tomo/DEMO/TIF/B1_10_2.tif"
+				o_width="1376"
+				o_height="1040"
+			/>
+			<t2_patch
+				oid="31"
+				width="1376"
+				height="1040"
+				transform="matrix(1.000000,0.000000,0.000000,1.000000,0.000000,1714.000000)"
+				title="1.11-1"
+				type="0"
+				file_path="/groups/apig/tomo/DEMO/TIF/B1_11_2.tif"
+				o_width="1376"
+				o_height="1040"
+			/>
+			<t2_patch
+				oid="32"
+				width="1376"
+				height="1040"
+				transform="matrix(1.000000,0.000000,0.000000,1.000000,0.000000,857.000000)"
+				title="1.12-1"
+				type="0"
+				file_path="/groups/apig/tomo/DEMO/TIF/B1_12_2.tif"
+				o_width="1376"
+				o_height="1040"
+			/>
+			<t2_patch
+				oid="33"
+				width="1376"
+				height="1040"
+				transform="matrix(1.000000,0.000000,0.000000,1.000000,0.000000,0.000000)"
+				title="1.13-1"
+				type="0"
+				file_path="/groups/apig/tomo/DEMO/TIF/B1_13_2.tif"
+				o_width="1376"
+				o_height="1040"
+			/>
+		</t2_layer>
+		<t2_layer
+			oid="34"
+			thickness="0"
+			z="2"
+		>
+			<t2_patch
+				oid="35"
+				width="1376"
+				height="1040"
+				transform="matrix(1.000000,0.000000,0.000000,1.000000,1142.000000,0.000000)"
+				title="2.0-1"
+				type="0"
+				file_path="/groups/apig/tomo/DEMO/TIF/C1_0_2.tif"
+				o_width="1376"
+				o_height="1040"
+			/>
+			<t2_patch
+				oid="36"
+				width="1376"
+				height="1040"
+				transform="matrix(1.000000,0.000000,0.000000,1.000000,1142.000000,857.000000)"
+				title="2.1-1"
+				type="0"
+				file_path="/groups/apig/tomo/DEMO/TIF/C1_1_2.tif"
+				o_width="1376"
+				o_height="1040"
+			/>
+			<t2_patch
+				oid="37"
+				width="1376"
+				height="1040"
+				transform="matrix(1.000000,0.000000,0.000000,1.000000,1142.000000,1714.000000)"
+				title="2.2-1"
+				type="0"
+				file_path="/groups/apig/tomo/DEMO/TIF/C1_2_2.tif"
+				o_width="1376"
+				o_height="1040"
+			/>
+			<t2_patch
+				oid="38"
+				width="1376"
+				height="1040"
+				transform="matrix(1.000000,0.000000,0.000000,1.000000,1142.000000,2571.000000)"
+				title="2.3-1"
+				type="0"
+				file_path="/groups/apig/tomo/DEMO/TIF/C1_3_2.tif"
+				o_width="1376"
+				o_height="1040"
+			/>
+			<t2_patch
+				oid="39"
+				width="1376"
+				height="1040"
+				transform="matrix(1.000000,0.000000,0.000000,1.000000,1142.000000,3428.000000)"
+				title="2.4-1"
+				type="0"
+				file_path="/groups/apig/tomo/DEMO/TIF/C1_4_2.tif"
+				o_width="1376"
+				o_height="1040"
+			/>
+			<t2_patch
+				oid="40"
+				width="1376"
+				height="1040"
+				transform="matrix(1.000000,0.000000,0.000000,1.000000,1142.000000,4285.000000)"
+				title="2.5-1"
+				type="0"
+				file_path="/groups/apig/tomo/DEMO/TIF/C1_5_2.tif"
+				o_width="1376"
+				o_height="1040"
+			/>
+			<t2_patch
+				oid="41"
+				width="1376"
+				height="1040"
+				transform="matrix(1.000000,0.000000,0.000000,1.000000,1142.000000,5142.000000)"
+				title="2.6-1"
+				type="0"
+				file_path="/groups/apig/tomo/DEMO/TIF/C1_6_2.tif"
+				o_width="1376"
+				o_height="1040"
+			/>
+			<t2_patch
+				oid="42"
+				width="1376"
+				height="1040"
+				transform="matrix(1.000000,0.000000,0.000000,1.000000,0.000000,5142.000000)"
+				title="2.7-1"
+				type="0"
+				file_path="/groups/apig/tomo/DEMO/TIF/C1_7_2.tif"
+				o_width="1376"
+				o_height="1040"
+			/>
+			<t2_patch
+				oid="43"
+				width="1376"
+				height="1040"
+				transform="matrix(1.000000,0.000000,0.000000,1.000000,0.000000,4285.000000)"
+				title="2.8-1"
+				type="0"
+				file_path="/groups/apig/tomo/DEMO/TIF/C1_8_2.tif"
+				o_width="1376"
+				o_height="1040"
+			/>
+			<t2_patch
+				oid="44"
+				width="1376"
+				height="1040"
+				transform="matrix(1.000000,0.000000,0.000000,1.000000,0.000000,3428.000000)"
+				title="2.9-1"
+				type="0"
+				file_path="/groups/apig/tomo/DEMO/TIF/C1_9_2.tif"
+				o_width="1376"
+				o_height="1040"
+			/>
+			<t2_patch
+				oid="45"
+				width="1376"
+				height="1040"
+				transform="matrix(1.000000,0.000000,0.000000,1.000000,0.000000,2571.000000)"
+				title="2.10-1"
+				type="0"
+				file_path="/groups/apig/tomo/DEMO/TIF/C1_10_2.tif"
+				o_width="1376"
+				o_height="1040"
+			/>
+			<t2_patch
+				oid="46"
+				width="1376"
+				height="1040"
+				transform="matrix(1.000000,0.000000,0.000000,1.000000,0.000000,1714.000000)"
+				title="2.11-1"
+				type="0"
+				file_path="/groups/apig/tomo/DEMO/TIF/C1_11_2.tif"
+				o_width="1376"
+				o_height="1040"
+			/>
+			<t2_patch
+				oid="47"
+				width="1376"
+				height="1040"
+				transform="matrix(1.000000,0.000000,0.000000,1.000000,0.000000,857.000000)"
+				title="2.12-1"
+				type="0"
+				file_path="/groups/apig/tomo/DEMO/TIF/C1_12_2.tif"
+				o_width="1376"
+				o_height="1040"
+			/>
+			<t2_patch
+				oid="48"
+				width="1376"
+				height="1040"
+				transform="matrix(1.000000,0.000000,0.000000,1.000000,0.000000,0.000000)"
+				title="2.13-1"
+				type="0"
+				file_path="/groups/apig/tomo/DEMO/TIF/C1_13_2.tif"
+				o_width="1376"
+				o_height="1040"
+			/>
+		</t2_layer>
+	</t2_layer_set>
+</trakem2>

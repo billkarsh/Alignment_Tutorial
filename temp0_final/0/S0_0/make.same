@@ -1,0 +1,95 @@
+all: 4/0.3.map.tif 4/0.5.map.tif 4/0.9.map.tif 4/0.10.map.tif 4/0.8.map.tif 3/0.9.map.tif 3/0.10.map.tif 3/0.2.map.tif 3/0.11.map.tif 5/0.9.map.tif 5/0.8.map.tif 5/0.6.map.tif 5/0.7.map.tif 9/0.10.map.tif 9/0.8.map.tif 10/0.2.map.tif 10/0.11.map.tif 2/0.11.map.tif 2/0.1.map.tif 2/0.12.map.tif 8/0.6.map.tif 8/0.7.map.tif 11/0.1.map.tif 11/0.12.map.tif 6/0.7.map.tif 1/0.12.map.tif 1/0.0.map.tif 1/0.13.map.tif 12/0.0.map.tif 12/0.13.map.tif 0/0.13.map.tif 
+
+4/0.3.map.tif:
+	ptest >>pts.same 2>pair_0.4^0.3.log 0.4^0.3 -nf ${EXTRA}
+
+4/0.5.map.tif:
+	ptest >>pts.same 2>pair_0.4^0.5.log 0.4^0.5 -nf ${EXTRA}
+
+4/0.9.map.tif:
+	ptest >>pts.same 2>pair_0.4^0.9.log 0.4^0.9 -nf ${EXTRA}
+
+4/0.10.map.tif:
+	ptest >>pts.same 2>pair_0.4^0.10.log 0.4^0.10 -nf ${EXTRA}
+
+4/0.8.map.tif:
+	ptest >>pts.same 2>pair_0.4^0.8.log 0.4^0.8 -nf ${EXTRA}
+
+3/0.9.map.tif:
+	ptest >>pts.same 2>pair_0.3^0.9.log 0.3^0.9 -nf ${EXTRA}
+
+3/0.10.map.tif:
+	ptest >>pts.same 2>pair_0.3^0.10.log 0.3^0.10 -nf ${EXTRA}
+
+3/0.2.map.tif:
+	ptest >>pts.same 2>pair_0.3^0.2.log 0.3^0.2 -nf ${EXTRA}
+
+3/0.11.map.tif:
+	ptest >>pts.same 2>pair_0.3^0.11.log 0.3^0.11 -nf ${EXTRA}
+
+5/0.9.map.tif:
+	ptest >>pts.same 2>pair_0.5^0.9.log 0.5^0.9 -nf ${EXTRA}
+
+5/0.8.map.tif:
+	ptest >>pts.same 2>pair_0.5^0.8.log 0.5^0.8 -nf ${EXTRA}
+
+5/0.6.map.tif:
+	ptest >>pts.same 2>pair_0.5^0.6.log 0.5^0.6 -nf ${EXTRA}
+
+5/0.7.map.tif:
+	ptest >>pts.same 2>pair_0.5^0.7.log 0.5^0.7 -nf ${EXTRA}
+
+9/0.10.map.tif:
+	ptest >>pts.same 2>pair_0.9^0.10.log 0.9^0.10 -nf ${EXTRA}
+
+9/0.8.map.tif:
+	ptest >>pts.same 2>pair_0.9^0.8.log 0.9^0.8 -nf ${EXTRA}
+
+10/0.2.map.tif:
+	ptest >>pts.same 2>pair_0.10^0.2.log 0.10^0.2 -nf ${EXTRA}
+
+10/0.11.map.tif:
+	ptest >>pts.same 2>pair_0.10^0.11.log 0.10^0.11 -nf ${EXTRA}
+
+2/0.11.map.tif:
+	ptest >>pts.same 2>pair_0.2^0.11.log 0.2^0.11 -nf ${EXTRA}
+
+2/0.1.map.tif:
+	ptest >>pts.same 2>pair_0.2^0.1.log 0.2^0.1 -nf ${EXTRA}
+
+2/0.12.map.tif:
+	ptest >>pts.same 2>pair_0.2^0.12.log 0.2^0.12 -nf ${EXTRA}
+
+8/0.6.map.tif:
+	ptest >>pts.same 2>pair_0.8^0.6.log 0.8^0.6 -nf ${EXTRA}
+
+8/0.7.map.tif:
+	ptest >>pts.same 2>pair_0.8^0.7.log 0.8^0.7 -nf ${EXTRA}
+
+11/0.1.map.tif:
+	ptest >>pts.same 2>pair_0.11^0.1.log 0.11^0.1 -nf ${EXTRA}
+
+11/0.12.map.tif:
+	ptest >>pts.same 2>pair_0.11^0.12.log 0.11^0.12 -nf ${EXTRA}
+
+6/0.7.map.tif:
+	ptest >>pts.same 2>pair_0.6^0.7.log 0.6^0.7 -nf ${EXTRA}
+
+1/0.12.map.tif:
+	ptest >>pts.same 2>pair_0.1^0.12.log 0.1^0.12 -nf ${EXTRA}
+
+1/0.0.map.tif:
+	ptest >>pts.same 2>pair_0.1^0.0.log 0.1^0.0 -nf ${EXTRA}
+
+1/0.13.map.tif:
+	ptest >>pts.same 2>pair_0.1^0.13.log 0.1^0.13 -nf ${EXTRA}
+
+12/0.0.map.tif:
+	ptest >>pts.same 2>pair_0.12^0.0.log 0.12^0.0 -nf ${EXTRA}
+
+12/0.13.map.tif:
+	ptest >>pts.same 2>pair_0.12^0.13.log 0.12^0.13 -nf ${EXTRA}
+
+0/0.13.map.tif:
+	ptest >>pts.same 2>pair_0.0^0.13.log 0.0^0.13 -nf ${EXTRA}
+

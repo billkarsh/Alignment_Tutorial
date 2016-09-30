@@ -1,0 +1,1 @@
+Atl	Acr	Btl	Bcr	Err	Deg	R	T0	T1	X	T3	T4	Y

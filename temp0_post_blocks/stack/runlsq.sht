@@ -1,0 +1,32 @@
+#!/bin/sh
+
+# Purpose:
+# Assign each tile (or each subregion if tiles divided by folds)
+# a transform (default is affine) that best describes the mapping
+# of correspondence point pairs from local images to the shared
+# global system.
+#
+# > lsq -temp=temp0 -zi=i,j [options]
+#
+# Required:
+# -temp=path		;master workspace (a.k.a. 'temp')
+# -zi=i,j			;output tforms in range z=[i..j]
+#
+# Options:
+# -cache=lsqcache	;path to {catalog,pnts} data
+# -catclr			;rebuild catalog file
+# -zo=p,q			;consider input out to z=[p..q]
+# -prior=path		;starting tforms (required if stack)
+# -untwist			;untwist prior affines
+# -mode=A2A			;action: {catalog,eval,split,A2A,A2H,H2H}
+# -Wr=R,0.001		;Aff -> (1-Wr)*Aff + Wr*(T=Trans, R=Rgd}
+# -Etol=30			;max point error (depends upon system size)
+# -iters=2000		;solve iterations
+# -splitmin=1000	;separate islands > splitmin tiles
+# -zpernode=200		;max layers per cluster node
+# -maxthreads=1		;maximum threads per node
+# -local			;run locally (no qsub) if 1 worker
+
+
+lsq -temp=../ -zi=0,2 -prior=../cross_wkspc/X_A_BIN_scaf -untwist -mode=A2A -Wr=R,0 -Etol=500 -iters=10000 -zpernode=200 -maxthreads=16
+

@@ -1,0 +1,44 @@
+#!/bin/sh
+
+# Purpose:
+# First step in cross-layer alignment.
+#
+# > scapeops srcmons -script=scriptpath -idb=idbpath [options]
+#
+# Required:
+# srcmons				;collected independent montages
+# -script=scriptpath	;alignment pipeline params file
+# -idb=idbpath			;path to idb directory
+#
+# Scapeops does montage drawing and/or strip aligning as follows:
+#
+# If drawing a montage...
+#
+#	-mb -zb=%d
+#
+# If aligning strips...
+#
+#	-ab -za=%d -zb=%d
+#
+# Options:
+# -mb			;make montage for layer zb
+# -ab			;align layer za to zb
+# -za			;layer za used only with -ab option
+# -zb			;required layer zb
+# -abdbg		;make diagnostic strip images and exit
+# -abdbgfull	;make diagnostic full images and exit
+# -abctr=0		;debug at this a-to-b angle
+
+
+# Create output subdirs
+mkdir -p strips
+mkdir -p montages
+mkdir -p scplogs
+
+# Submit layer pairs
+QSUB_1NODE.sht 5 "sc-0" "-j y -o out.txt" 8 "scapeops '/groups/apig/tomo/DEMO/temp0/X_A_BIN_mons' -script=/groups/apig/tomo/DEMO/prms/scriptparams.txt -idb=/groups/apig/tomo/DEMO/idb0 -mb -ab -za=1 -zb=0"
+QSUB_1NODE.sht 5 "sc-1" "-j y -o out.txt" 8 "scapeops '/groups/apig/tomo/DEMO/temp0/X_A_BIN_mons' -script=/groups/apig/tomo/DEMO/prms/scriptparams.txt -idb=/groups/apig/tomo/DEMO/idb0 -mb -ab -za=2 -zb=1"
+
+# Just montage last layer
+QSUB_1NODE.sht 6 "sc-2" "-j y -o out.txt" 8 "scapeops '/groups/apig/tomo/DEMO/temp0/X_A_BIN_mons' -script=/groups/apig/tomo/DEMO/prms/scriptparams.txt -idb=/groups/apig/tomo/DEMO/idb0 -mb -zb=2"
+

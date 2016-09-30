@@ -1,0 +1,39 @@
+#!/bin/sh
+
+# Purpose:
+# For layer range, submit all make.same and use the make option -j <n>
+# to set number of concurrent jobs.
+#
+# > ./ssub.sht <zmin> [zmax]
+
+
+export MRC_TRIM=12
+
+nproc=4
+nslot=4
+
+if (($# == 1))
+then
+	last=$1
+else
+	last=$2
+fi
+
+for lyr in $(seq $1 $last)
+do
+	echo $lyr
+	if [ -d "$lyr" ]
+	then
+		cd $lyr
+
+		for jb in $(ls -d * | grep -E 'S[0-9]{1,}_[0-9]{1,}')
+		do
+			cd $jb
+			QSUB_1NODE.sht 2 "q$jb-$lyr" "-o /dev/null" $nslot "make -f make.same -j $nproc EXTRA='""'"
+			cd ..
+		done
+
+		cd ..
+	fi
+done
+

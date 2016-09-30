@@ -1,0 +1,39 @@
+#!/bin/sh
+
+# Purpose:
+# Convert Z-file tform data to viewable text or xml.
+#
+# Z-file organized data can be:
+# - IDB (inpath not specified)
+# - X_A_TXT, X_H_TXT
+# - X_A_MET, X_H_MET
+# - X_A_BIN, X_H_BIN
+#
+# > xview inpath -idb=idbpath -z=i,j [options]
+#
+# Required:
+# inPath			;path of a tform source folder
+# -idb=idbpath		;path to idb folder
+# -z=i,j			;convert tforms in range z=[i..j]
+#
+# ImagePlus type codes used in xml files:
+#	AUTO		= -1
+#	GRAY8		= 0
+#	GRAY16		= 1
+#	GRAY32		= 2
+#	COLOR_256	= 3
+#	COLOR_RGB	= 4
+#
+# Options:
+# -forceWH=w,h		;force bounds (override degcw)
+# -degcw=0			;rotate CW degrees
+# -type=X			;{T,M,X,B} = {X_?_TXT,X_?_MET,xml,billfile}
+# -meta=path		;billfile with alt image paths
+# -xmltrim=0.0		;trim this much from xml images
+# -xmltype=0		;ImagePlus type code
+# -xmlmin=0			;intensity scale
+# -xmlmax=0			;intensity scale
+
+
+xview X_A_BIN -idb=/groups/apig/tomo/DEMO/idb0 -z=0,2 -degcw=0 -type=X
+

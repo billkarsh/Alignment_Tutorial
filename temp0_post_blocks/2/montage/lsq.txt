@@ -1,0 +1,32 @@
+---- Read params ----
+Temp  dir: '/groups/apig/tomo/DEMO/temp0'.
+zi [2 2]
+
+---- Cataloging ----
+Timer: Catalog took 0.010 seconds.
+
+---- Launching workers ----
+Workers 1, z-per-node 200.
+Launch <>
+<lsqw -nwks=1 -temp=/groups/apig/tomo/DEMO/temp0 -cache=/groups/apig/tomo/DEMO/temp0/2/montage/lsqcache -prior= -mode=A2A -Wr=R,0.001 -Etol=30 -iters=2000 -splitmin=1000 -maxthreads=1 -zi=2,2 -zo=2,2>
+
+---- Memory ----
+Host name: h07u11.int.janelia.org
+PID:       26366
+User time:       0 seconds.
+System time:     0 seconds.
+VmPeak:	  134924 kB
+VmSize:	  134416 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	    5276 kB
+VmRSS:	    5276 kB
+VmData:	    1524 kB
+VmStk:	     144 kB
+VmExe:	      24 kB
+VmLib:	   51980 kB
+VmPTE:	     212 kB
+VmSwap:	       0 kB
+voluntary_ctxt_switches:	245
+nonvoluntary_ctxt_switches:	186
+
