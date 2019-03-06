@@ -850,7 +850,9 @@ I usually check the `mon-*` logs as discussed above like this:
 > ls -l */montage/mon-*
 ```
 
-Then to keep clutter down I typically delete them, **but not for this tutorial**:
+We're not concerned here if error files exist (they usually do). Rather, we
+want to make sure they have zero size. Then to keep clutter down I typically
+delete them, **but not for this tutorial**:
 
 ```
 > rm */montage/mon-*
