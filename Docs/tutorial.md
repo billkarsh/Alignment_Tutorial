@@ -760,7 +760,7 @@ This script cd's into each S-folder and submits the make.same file within. Outpu
 When all jobs complete, check results...
 
 ```
-> ./sreport 0 2
+> ./sreport.sht 0 2
 ```
 
 This produces three summary reports (in temp0) about what happened:
