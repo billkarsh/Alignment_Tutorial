@@ -125,20 +125,20 @@ absolute_rooted_image_path X_float Y_float Z_integer_index
 ```
 
 * Full absolute path to image.
-	* Images may be accessed from a variety of working directories so must be absolute.
-	* Images can be TIF (8,16) PNG (8,16) MRC(16).
+    * Images may be accessed from a variety of working directories so must be absolute.
+    * Images can be TIF (8,16) PNG (8,16) MRC(16).
 * X, Y are floating-point coordinates of image's left-top corner.
-	* X increases from left to right.
-	* Y increases from top to bottom.
-	* Arrangement is arbitrary; requirement is adequate overlap to match content.
+    * X increases from left to right.
+    * Y increases from top to bottom.
+    * Arrangement is arbitrary; requirement is adequate overlap to match content.
 * Z is 0-based layer index.
-	* All the images for a layer should be grouped together in a layout file.
-	* Listed Z's should never decrease.
-	* Z's need not be contiguous: we will automatically match across gaps.
-	* Z need not start at 0 (set desired `-z=i,j` range in topgo.sht).
+    * All the images for a layer should be grouped together in a layout file.
+    * Listed Z's should never decrease.
+    * Z's need not be contiguous: we will automatically match across gaps.
+    * Z need not start at 0 (set desired `-z=i,j` range in topgo.sht).
 * The image-id (a.k.a. tileid) must be embedded in the image filename. There is no other field provided for the id.
-	* TileID is a non-negative 32-bit integer and is unique within its layer.
-	* `Tip: ID's can be anything, but assigning, say, col*1000+row, makes navigating easier`.
+    * TileID is a non-negative 32-bit integer and is unique within its layer.
+    * `Tip: ID's can be anything, but assigning, say, col*1000+row, makes navigating easier`.
 
 The aligner (`a.k.a. pipeline`), per se, no longer supports this simple format directly, but you may appreciate knowing that you could create a simple meta-file like this and then convert to the new format, as we show here.
 
@@ -168,24 +168,24 @@ Z tileID a00 a01 a02 a10 a11 a12 col row cam full_path
 ```
 
 * Z is 0-based layer index.
-	* All the images for a layer should be grouped together in a layout file.
-	* Listed Z's should never decrease.
-	* Z's need not be contiguous: we will automatically match (bridge) across gaps.
-	* Z need not start at 0 (set desired `-z=i,j` range in topgo.sht).
+    * All the images for a layer should be grouped together in a layout file.
+    * Listed Z's should never decrease.
+    * Z's need not be contiguous: we will automatically match (bridge) across gaps.
+    * Z need not start at 0 (set desired `-z=i,j` range in topgo.sht).
 * TileID is a non-negative signed 32-bit integer and is unique within its layer.
-	* `Tip: ID's can be anything, but assigning, say, col*1000+row, makes navigating easier`.
+    * `Tip: ID's can be anything, but assigning, say, col*1000+row, makes navigating easier`.
 * Components of affine with 2D order like this:
-	* `.[ [a00 a01 a02]`
-	* `.. [a10 a11 a12] ]`.
-	* Equiv 1D labeling like this: [a0 a1 a2 a3 a4 a5] = [a00 a01 a02 a10 a11 a12].
-	* Most often, [a0 a1 a3 a4] = identity [1 0 0 1] and [a2 a5] = image [left top].
+    * `.[ [a00 a01 a02]`
+    * `.. [a10 a11 a12] ]`.
+    * Equiv 1D labeling like this: [a0 a1 a2 a3 a4 a5] = [a00 a01 a02 a10 a11 a12].
+    * Most often, [a0 a1 a3 a4] = identity [1 0 0 1] and [a2 a5] = image [left top].
 * col and row are 0-based col and row indices for human debugging.
-	* If unavailable, these should be set each to -999.
+    * If unavailable, these should be set each to -999.
 * cam is 0-based camera identifier for debugging.
-	* In a one-camera setup, use cam = 0.
+    * In a one-camera setup, use cam = 0.
 * Full rooted absolute path to image.
-	* Images may be accessed from a variety of working directories so must be absolute.
-	* Images can be TIF (8,16) PNG (8,16) MRC(16).
+    * Images may be accessed from a variety of working directories so must be absolute.
+    * Images can be TIF (8,16) PNG (8,16) MRC(16).
 * Spaces are space or tab.
 
 ### Layout From TrakEM2 File
@@ -220,9 +220,9 @@ reformat myoldfile.xml -x -p=_idN -zmin=i -zmax=j
 To recap, the typical starting project materials are really these:
 
 * `DEMO` : project folder
-	* `prms` : the two needed parameter files
-	* `layout.txt` : new-style image metadata (or new-style TrakEM2.xml)
-	* `topgo.sht` : first alignment script
+    * `prms` : the two needed parameter files
+    * `layout.txt` : new-style image metadata (or new-style TrakEM2.xml)
+    * `topgo.sht` : first alignment script
 
 ## <a name="parameters"></a>Parameters
 
@@ -236,8 +236,8 @@ A light duty "justification" for each setting we use. Note that some parameters 
 * `PXLENS=N` : Not using deprecated affine lens correction file.
 * `PXRESMSK=N` : Applicable only for EM.
 * `PXDOG=N` : Difference of Gaussians filter never used. (N) disables parameters:
-	* `PXDOG_R1=3`
-	* `PXDOG_R2=6`
+    * `PXDOG_R1=3`
+    * `PXDOG_R2=6`
 * `FLD=N` : Not using foldmasks.
 * `PRETWEAK=N` : Optical data typically not distorted.
 * `SCALE=1` : No forced distortion needed.
@@ -276,11 +276,11 @@ A light duty "justification" for each setting we use. Note that some parameters 
 
 * `OPT_SL=Y` : Allow the mesh optimizer to move control points around.
 * `RIT_SL=0.50` : Remember that the mesh machinery measures simple correlation (full scale) so these values need not look like the FFT values (neither on thumbs nor retested on full scale images). I got this value by trying cases and then backing off a little. `RIT` is the correlation we require before the optimizer is permitted to run, `RFA` is the value for just one large triangle, `RFT` is the value for the full mesh. Note that we expect at least small improvement as we increase deformation freedom.
-	* `RIT_XL=0.1` : Ditto, by experiment.
-	* `RFA_SL=0.55` : Ditto, by experiment.
-	* `RFA_XL=0.20` : Ditto, by experiment.
-	* `RFT_SL=0.65` : Ditto, by experiment.
-	* `RFT_XL=0.25` : Ditto, by experiment.
+    * `RIT_XL=0.1` : Ditto, by experiment.
+    * `RFA_SL=0.55` : Ditto, by experiment.
+    * `RFA_XL=0.20` : Ditto, by experiment.
+    * `RFT_SL=0.65` : Ditto, by experiment.
+    * `RFT_XL=0.25` : Ditto, by experiment.
 * `TMC=5` : In the full mesh, we permit 5% area variation among triangles. In fluorescence data triangles with extended bright content will change more than homogeneous dim features like neuropil. 5% is quite strict. 30% is not unheard of, especially if there are some folds and the mesh straddles different subregions.
 * `TSC=9` : Total mesh change. Same remarks.
 * `MNL=250` : Something like a dozen triangles on a side is typical, so I want six or so grid boxes per side. 1040 / 250 = 4.16 and the mesh algorithm will round it up to 5, giving 10 triangles. 1376 / 250 becomes 6 boxes, so 12 triangles.
@@ -295,8 +295,8 @@ A light duty "justification" for each setting we use. Note that some parameters 
 * `EMT=0.14` : Threshold 0.14 experimentally determined.
 * `WDI=N` : Do not write the difference (A-B) images used for EMM.
 * `LDA=0.2` : The next three thresholds determine how different triangles can be from each other {LDA = angular deviation in radians, LDR = deviation in matrix (sine-like) components, LDC = deviation in translation (coord-like) components}. These values are experimentally determined.
-	* `LDR=0.1` : Ditto, by experiment.
-	* `LDC=100` : Ditto, by experiment.
+    * `LDR=0.1` : Ditto, by experiment.
+    * `LDC=100` : Ditto, by experiment.
 * `DXY=100` : Not using command line option `-XYexp=dx,dy` which would force affines to be within DXY of the expected translation.
 * `WMT=N` : Rendered triangles not useful unless debugging in ptestx.
 * `WTT=N` : Auxiliary text transform files not used.
@@ -309,9 +309,9 @@ Okay, so how does one really pick all these numbers?
 * Take a stab at the parameters based upon hand-waving arguments or similar data sets.
 * Run same-layer point extraction, montages and mreport.
 * Change directory into the worst-looking montage folder...
-	* Read the lsqw_0.log for details.
-	* Use ptestx on the biggest error cases to see what went wrong.
-	* Run xview.sht and examine the montage in TrakEM2.
+    * Read the lsqw_0.log for details.
+    * Use ptestx on the biggest error cases to see what went wrong.
+    * Run xview.sht and examine the montage in TrakEM2.
 * Change directory into the corresponding S-folder(s).
 * `grep FAIL pair* > xxx.txt` to tabulate reasons you're not getting points.
 * Play with examples in ptestx to adjust matchparams.
@@ -384,9 +384,9 @@ Okay, so how does one really pick all these numbers?
 Again, here's our starting state:
 
 * `DEMO` : project folder
-	* `prms` : the two needed parameter files
-	* `layout.txt` : new-style image metadata
-	* `topgo.sht` : first alignment script
+    * `prms` : the two needed parameter files
+    * `layout.txt` : new-style image metadata
+    * `topgo.sht` : first alignment script
 
 ### The Mysterious MRC_TRIM
 
@@ -472,8 +472,8 @@ Inside idb0 we find:
 
 * `imageparams.txt` : subsequent pipeline stages look up idb path or image dimensions here.
 * `A folder per layer`, inside...
-	* `fm.same` : how many connected regions (a.k.a subregions) each image has.
-	* `TileToImage.txt` : a standardized format for your layout meta-data.
+    * `fm.same` : how many connected regions (a.k.a subregions) each image has.
+    * `TileToImage.txt` : a standardized format for your layout meta-data.
 
 ### If Using MRC Images
 
@@ -525,7 +525,7 @@ The previous step, `mongo.sht` used stage coords and the overlap threshold `mint
 * Create folder `DEMO/Try` (arbitrary, what I always call it).
 * Copy `1_Ptestx/pgo.sht` into Try.
 * Copy `prms/matchparams.txt` into Try.
-* Open `temp0/2/make.same` and copy the following string from the first ptest entry `2.4^2.3 -nf`.
+* Open `temp0/2/S0_0/make.same` and copy the following string from the first ptest entry `2.4^2.3 -nf`.
 * Open pgo.sht and edit the command line like this:
 
 ```
@@ -553,25 +553,25 @@ Now go into the Try folder and run it:
 You get the following:
 
 * `DEMO/Try` : top folder
-	* `ptestx.log` : uninteresting log from ptestx.
-	* `temp/` : local workspace.
-		* `matchparams.txt` : local copy ptest can find.
-		* `imageparams.txt` : local copy ptest can find.
-		* `2/` : everyting for layer 2 because our A image is in layer 2.
-			* `4` : Auxiliary folder for A image 2.4. (needed iff `WMT=Y or WTT=Y`).
-			* `S0_0` : workspace for same-layer block 0,0.
-				* `corr_A_0.tif` : correlation image mask.
-				* `corr_R_0.tif` : R-value correlation image (academic interest).
-				* `corr_S_0.tif` : S-value correlation image (the real metric image).
-				* `pair_2.4^2.3.log` : all the details.
-				* `thmA_0.tif` : actual correlator input.
-				* `thmB_0.tif` : actual correlator input.
-				* `ThmPair_2^2.txt` : table of approx FFT results.
+    * `ptestx.log` : uninteresting log from ptestx.
+    * `temp/` : local workspace.
+        * `matchparams.txt` : local copy ptest can find.
+        * `imageparams.txt` : local copy ptest can find.
+        * `2/` : everyting for layer 2 because our A image is in layer 2.
+            * `4` : Auxiliary folder for A image 2.4. (needed iff `WMT=Y or WTT=Y`).
+            * `S0_0` : workspace for same-layer block 0,0.
+                * `corr_A_0.tif` : correlation image mask.
+                * `corr_R_0.tif` : R-value correlation image (academic interest).
+                * `corr_S_0.tif` : S-value correlation image (the real metric image).
+                * `pair_2.4^2.3.log` : all the details.
+                * `thmA_0.tif` : actual correlator input.
+                * `thmB_0.tif` : actual correlator input.
+                * `ThmPair_2^2.txt` : table of approx FFT results.
 
 Here's what you should see on opening the FFT images in Fiji and adjusting brightness & contrast:
 
 Thm_A: ![Thm_A_0](Try0/thmA_0.jpg)
-Thm_B: ![Thm_B_0](Try0/thmB_0.jpg) 
+Thm_B: ![Thm_B_0](Try0/thmB_0.jpg)
 
 S-image: ![S-image](Try0/corr_S_0.jpg)
 
@@ -819,13 +819,13 @@ The typical montage folder, say `temp0/0/montage`, contains the following:
 * `lsqcache` :  folder contains a catalog of all the grid cell folders for a layer, that is, the same-layer point folders Sx_y, and later we will add down-layer block folders Dx_y holding pts.down files. The Dx_y folders will also get ThmPair_A^B.txt files summarizing the results of thumbnail matches for cross-layer ptest jobs. The names of these files encode that a block in layer A connects to a block in layer B. The LSQ catalog function will scan for all such files and tabulate the connectivity map for each layer: a list of all the other layers that this layer touches. That's how LSQ will determine what point data are needed to solve for a given range of layers. The lsqcache folder also contains binary versions of the relevant points files for faster start/stop processing with LSQ. That is, you might run LSQ for a thousand iterations and eval the errors, then decide to do another 1000. The binary point data reloads very fast.
 
 * `X_A_BIN` : folder is the solution in binary form. A file per layer of the transforms we found. These can be converted into more useful formats using tool `1_Xview/xviewgo.sht` which converts to text forms for Catmaid or to TrakEM2 XML files. In the naming convention for these folders:
-	* `X` denotes solved variables.
-	* `A` denotes affines.
-		* `H` (an alternative to `X`) denotes homographies, which are a superset of the affines that have two more matrix elements to allow encoding the tilt of the view plane. This is  very relevant to modeling imaging systems because the camera focal plane may not be completely normal to the beam.
-	* `BIN` denotes binary format data.
-		* `TXT` (an alternative to `BIN`) denotes simple text transform tables.
-		* `MET` (an alternative to `BIN`) denotes text with transforms and meta-data.
-	* `_label` if present, is an optional tag simply identifying this solution.
+    * `X` denotes solved variables.
+    * `A` denotes affines.
+        * `H` (an alternative to `X`) denotes homographies, which are a superset of the affines that have two more matrix elements to allow encoding the tilt of the view plane. This is  very relevant to modeling imaging systems because the camera focal plane may not be completely normal to the beam.
+    * `BIN` denotes binary format data.
+        * `TXT` (an alternative to `BIN`) denotes simple text transform tables.
+        * `MET` (an alternative to `BIN`) denotes text with transforms and meta-data.
+    * `_label` if present, is an optional tag simply identifying this solution.
 
 
 * `ErrSame/Down.txt` : lists the RMS error and top ten largest errors; followed by the triplet labels for the top ten cases. These facilitate investigating cases using `Try/pgo.sht`.
