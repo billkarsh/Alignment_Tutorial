@@ -1103,6 +1103,8 @@ Change directory to `temp0/stack` and run the following:
 
 ### Read the Log
 
+Logs are named `lsqw_k.txt` for lsw worker k. The summary is always in `lsqw_0.txt`.
+
 I'll explain a few log highlights:
 
 ```
