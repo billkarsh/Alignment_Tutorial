@@ -455,6 +455,13 @@ There's a nice tool here `2_XMLExtract` to cut out a section of a stack specifyi
 //
 ```
 
+### Aside 2: Raw Data Sanity Checkers
+
+There are two sanity checking tools that run on `RawData.xml`. I always run these on array tomography stacks. They catch common errors that happen if there were focus mistakes and the user needed to manually splice imaging "redos" back into the original:
+
+* `2_UniqueTiles` : makes sure no image paths are repeated.
+* `2_XMLExists` : makes sure all named images actually exist on disk.
+
 ### Generate IDB
 
 Let's get back on track. Edit dbgo.sht again, enabling **only** the original command, then run it:
