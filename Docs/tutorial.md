@@ -967,7 +967,7 @@ In our tutorial I know we won't overrun the cluster limits and I know the parame
 ### Check Block Results
 
 ```
-> ./breport.sht
+> ./breport.sht 0 2
 ```
 
 Each block match determines the fate of the tiles within it. If the Tab guess for a block is substantially wrong then all the contained tiles are likely to generate no points, or worse, bad points in ptest because, as we've said, ptest does not have a robust way to validate Tab. Certainly there are many sanity checks in ptest, but it is easily possible for a bad solution to sneak through, especially as you start to relax the stringency of the checking to admit edge cases you are confident are right. Let's be clear, I often relax the tests and you will too, not because of sloppiness or lack of moral fiber. Rather, the issue is that if you don't have enough points in some part of the volume then the solution won't be as smooth as you scroll through it because there won't be enough information to fully determine some tile positions. That will make headaches for the tracing that follows. There are two things you can do to improve your odds:
