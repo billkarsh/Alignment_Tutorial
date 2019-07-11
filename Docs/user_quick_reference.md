@@ -5,8 +5,8 @@
 ### Initial Project Folder
 
 >* prms
-	* matchparams.txt
-	* scriptparams.txt
+    * matchparams.txt
+    * scriptparams.txt
 * mylayout.txt
 * topgo.sht
 
@@ -71,7 +71,7 @@
 ```
 > ./carvego.sht
 > ./bsub.sht 0 2
-> ./breport.sht
+> ./breport.sht 0 2
 ```
 
 ### Extract Cross-Layer Point-Pairs
