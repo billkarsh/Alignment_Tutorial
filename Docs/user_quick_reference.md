@@ -86,6 +86,12 @@
 
 ```
 > cd stack
+// ---------------------------------------------
+// To locally solve a small stack without MPI,
+// edit runlsq.sht and make two changes:
+// - Set -zpernode=<total_stack_layer_count>.
+// - Insert option -local.
+// ---------------------------------------------
 > ./runlsq.sht
 > ./xviewgo.sht
 ```

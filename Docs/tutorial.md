@@ -1101,7 +1101,19 @@ The interpretation is the same too.
 
 Nearing the end now!! All the points are in hand. It only remains to solve for the final stack.
 
-Change directory to `temp0/stack` and run the following:
+Change directory to `temp0/stack`.
+
+>**Note:**
+>If you are solving a small stack, which is often true for optical
+>array tomography, you can bypass MPI and do the solving work on a
+>single machine by making two edits to runlsq.sht:
+
+```
+1. Set -zpernode=<total_stack_layer_count>.
+2. Insert option -local.
+```
+
+Now run the following:
 
 ```
 > ./runlsq.sht
