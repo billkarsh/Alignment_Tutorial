@@ -5,10 +5,10 @@
 ### Initial Project Folder
 
 >* prms
-    * matchparams.txt
-    * scriptparams.txt
-* mylayout.txt
-* topgo.sht
+>    * matchparams.txt
+>    * scriptparams.txt
+>* mylayout.txt
+>* topgo.sht
 
 ### Create Image Database and 'temp0' Work Folder
 
