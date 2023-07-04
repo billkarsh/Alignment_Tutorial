@@ -82,7 +82,7 @@ The last step is to invoke the grand LSQ solver to sweep up all the points and s
 
 ## <a name="these-data"></a>These Data
 
-These fluorescence imaging data are **three consecutive sections** of 200 nm thick mouse tissue. Each slice is about 170 x 450 um. The label is antibody-stained YFP expressing in cortical layer five pyramidal cells of a Thy-1 mouse. Sample preparation, slicing and microscopy were performed by [Jong-Cheol "J. C." Rah](http://journal.frontiersin.org/Journal/10.3389/fncir.2013.00177/abstract) here at Janelia. My wife Jennifer Colonell and I (members of the [Applied Physics and Instrumentation Group](http://janelia.org/lab/harris-lab-apig)) had built a system to do optical array tomography in the manner of [Stephen Smith](http://www.hms.harvard.edu/bss/neuro/bornlab/nb204/papers/micheva_smith_2007.pdf). J. C. was the first biologist to bravely employ our platform for a major research project.
+These fluorescence imaging data are **three consecutive sections** of 200 nm thick mouse tissue. Each slice is about 170 x 450 um. The label is antibody-stained YFP expressing in cortical layer five pyramidal cells of a Thy-1 mouse. Sample preparation, slicing and microscopy were performed by [Jong-Cheol "J. C." Rah](http://journal.frontiersin.org/Journal/10.3389/fncir.2013.00177/abstract) here at Janelia. Jennifer Colonell and I (members of the [Applied Physics and Instrumentation Group](http://janelia.org/lab/harris-lab-apig)) had built a system to do optical array tomography in the manner of [Stephen Smith](http://www.hms.harvard.edu/bss/neuro/bornlab/nb204/papers/micheva_smith_2007.pdf). J. C. was the first biologist to bravely employ our platform for a major research project.
 
 **Arrangement of tile-ids in each montage:**
 
