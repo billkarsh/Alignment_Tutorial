@@ -145,7 +145,7 @@ The aligner (`a.k.a. pipeline`), per se, no longer supports this simple format d
 First though, note that the paths in rick0 are not the required absolute paths. Rather the images are prefixed with "editme" (try `> cat rick0.txt`). To fix this, note (or copy) the full rooted path to your repo's TIF folder, and type (substituting your path):
 
 ```
-> ./edit_filepath.sht rick0.txt 'editme' '/groups/apig/tomo/Alignment_Tutorial/StarterMaterials/TIF`
+> ./edit_filepath.sht rick0.txt 'editme' '/groups/apig/tomo/Alignment_Tutorial/StarterMaterials/TIF'
 ```
 
 The output is `.../DEMO/rick0_v2.txt` with absolute paths that make sense on your computer.
