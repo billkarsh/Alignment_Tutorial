@@ -320,7 +320,7 @@ Okay, so how does one really pick all these numbers?
 
 ### prms/scriptparams.txt
 
-** Cluster configuration**
+**Cluster configuration**
 
 * `slotspernode=16` : Each cluster node (machine) at Janelia has 16 cores and 128 GB RAM shared among them. Users (via qsub parameters) specify the number of required slots, where a slot is a virtual unit comprising 1 core and 128/16 GB RAM. It's an honor system. If a job requires N processors, request at least N slots. If the memory footprint is M, request enough slots to cover that.
 
